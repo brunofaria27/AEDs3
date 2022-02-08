@@ -1,0 +1,16 @@
+A transferência (leitura e escrita) de dados para dispositivos externos (como a memória secundária) é feita por meio de fluxos de bytes.
+Assim, todos os dados, independentemente do seu tipo, deve ser convertidos em sequências de bytes que possam ser enviadas ou recebidas por meio desses fluxos.
+
+Quando precisamos ler ou escrever dados em um arquivo, precisamos abrir um fluxo de bytes para ele. Se formos ler dados, devemos abrir um fluxo de leitura.
+Se formos escrever dados, devemos abrir um fluxo de escrita.
+
+Os fluxos de entrada, portanto, são usados para entrada de dados no programa (a partir de um arquivo) e os fluxos de saída são usados para a saída de dados do programa 
+(para um arquivo). A perspectiva adotada é sempre a do programa (e não do arquivo). Os fluxos são abstrações que independem do tipo de memória secundária usado.
+Assim, você pode, por exemplo, trocar o HDD do seu computador por um SSD sem precisar mudar nada nos seus programas.
+
+Mas a questão mais importante aqui é você guardar que a transferência de dados do/para o programa é feita por meio de fluxos de bytes e que, assim, tudo tem que ser
+convertido em bytes. Na verdade, as linguagens de programação também oferecem fluxos de caracteres, mas, assim como arquivos destinados a outros fins
+(imagens, vídeos, audios, etc.), isso está fora do escopo da nossa disciplina. Também é importante que você se lembre também que os fluxos funcionam melhor quando o
+acesso é sequencial (não pelo fluxo em si, mas pelas características da memória secundária).
+
+ 

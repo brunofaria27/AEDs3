@@ -1,0 +1,97 @@
+O tempo de acesso a um setor em um disco rígido é muito superior ao tempo de transferência desse mesmo setor. Assim, quando lemos vários setores sequencialmente, 
+reduzimos o número de acessos necessários e tornamos o processo bem mais eficiente.
+
+O disco rígido é um gargalo do computador e é o seu desempenho que define, de uma forma geral, o desempenho geral dos sistemas (já que programas e dados estão armazenados
+em disco). Obviamente, esse impacto é maior nos programas que acessam mais arquivos em disco, pois a CPU executa mais de um milhão de instruções enquanto o disco rígido 
+executa um único acesso aleatório.
+
+Como apresentado no vídeo, o tempo de uma operação em disco é determinado por dois fatores: tempo de acesso aos dados e tempo de transferência dos dados.
+
+O tempo de acesso é o tempo necessário para o cabeçote ser posicionado no setor desejado. Esse tempo é a soma do tempo de busca e da latência rotacional.
+
+O tempo de busca é o tempo necessário para que o cabeçote se posicione no cilindro desejado. Como ele pode iniciar esse movimento a partir que qualquer cilindro, 
+o tempo de busca é especificado de uma ou mais das seguintes formas:
+
+Tempo máximo – tempo necessário para o cabeçote mover-se do primeiro para o último cilindro. Esse movimento é bastante raro e dependeria do disco estar cheio.
+Cilindro a cilindro – tempo necessário para o cabeçote mover-se para o cilindro adjacente.
+Tempo médio – tempo médio para movimentos aleatórios do cabeçote, de um cilindro qualquer para outro cilindro qualquer. Pode ser determinado matematicamente, 
+através do cálculo de 2/3 do tempo máximo. É a forma mais usual de especificação do tempo de busca.
+Algumas observações extras sobre o tempo de busca são necessárias. Em primeiro lugar, o tempo de busca envolve o tempo de execução de comando (command overhead time), 
+que é o tempo necessário para que o cabeçote comece a se mover após receber o comando, e o tempo de estabilização (settle time), que é o tempo necessário para que o 
+cabeçote, após um movimento, esteja estável o suficiente para a transferência de dados. Em alguns discos rígidos, esses tempos são especificados separadamente. 
+Em segundo lugar, o tempo de busca para leitura é mais rápido do que o tempo de busca para escrita em cerca de um milissegundo. Quando apenas um tempo de busca é 
+especificado, geralmente ele se refere ao tempo busca para leitura.
+
+Os discos rígidos são mantidos em constante rotação para evitar o atraso na leitura devido à inércia. Mesmo assim, quando o cabeçote chega ao cilindro, não há como 
+garantir que ele esteja sobre o setor desejado. Assim, deve esperar o prato girar até que esse setor chegue à posição correta. O tempo dessa espera é chamado de 
+latência rotacional (rotational latency) e é inversamente proporcional à velocidade de rotação do disco.
+
+A latência rotacional pode ser praticamente nula se o setor estiver na posição ideal quando o cabeçote chegar ao cilindro. Da mesma forma, pode ser de uma rotação 
+completa se o setor tiver acabado de passar sob o cabeçote. Na média, a latência é de meia rotação.
+
+A transferência de dados só se inicia após o alcance do setor correto e seu desempenho é afetado por fatores internos e externos ao disco. Os principais fatores 
+internos são a velocidade de rotação do disco e a densidade de dados da mídia. Quanto mais rápida for a velocidade de rotação, tanto menor será o tempo de transferência. 
+Igualmente, quanto maior for a densidade de dados, tanto menor também será o tempo de transferência.
+
+Uma forma simplificada, considerando apenas esses dois fatores, de calcular a taxa de transferência de dados em bytes/segundo, para setores com 512 bytes de tamanho, 
+é através da seguinte fórmula:
+taxa de tranferencia = numero de setores por trilha * tamanho do setor / (60 / velocidade em RPM)
+
+Entretanto, num processo de transferência real, há a possibilidade de que os dados estejam em setores distribuídos em várias trilhas de um mesmo cilindro. Nesse caso, 
+também deve ser incluído no cálculo do tempo de transferência o tempo de mudança de cabeçote (head switch time). Mesmo que a mudança de cabeçote seja um processo puramente 
+eletrônico, ainda aumenta o tempo de transferência em um ou dois milissegundos.
+
+Analogamente, se os dados ocuparem setores de mais de um cilindro, o tempo de transferência também deve considerar o tempo de mudança de cilindro (cylinder switch time).
+
+Apesar de não ser um fator de desempenho do disco, é importante considerar que o tempo de acesso também envolve a espera pela disponibilidade do disco (caso esteja sendo 
+usado por outro aplicativo).
+
+Os fatores externos que afetam a transferência de dados são a velocidade de transferência da interface controladora e o tamanho da memória cache interna (buffer) do disco rígido.
+
+A velocidade de transferência das interfaces controladoras é muito superior à velocidade de transferência interna dos discos rígidos e, assim, quase sempre é desconsiderada. 
+Entretanto, quando vários discos rígidos são controlados por uma única interface, como em um RAID, a velocidade da interface pode vir a ser um fator limitante.
+
+A memória cache interna, também chamada de buffer, é um recurso para otimizar a transferência dos dados. Presumindo que os próximos dados a serem requisitados por um programa 
+estejam logo após os últimos lidos, eles são previamente carregados na memória cache e acessados de forma muito mais rápida do que se ainda tivessem que ser lidos no disco. 
+Uma memória cache pode armazenar milhares de setores e seu gerenciamento é feito por blocos, ou seja, vários blocos de leitura e escrita compartilham o espaço disponível.
+
+***********************************************
+
+Exemplo
+Para exemplificar o impacto dos tempos de acesso e transferência de dados em um sistema, considere um arquivo de 10 MB (que ocupa 20.480 setores), armazenado em um disco 
+cuja geometria seja 1060 cilindros, 16 cabeças e 63 setores. Considere também que o tempo médio de busca do disco rígido seja de 13,5 ms, a latência rotacional média seja 
+de 6,7 ms, a velocidade rotacional de 4.500 RPM, o tempo de mudança de cabeçote de 1 ms e o tempo de mudança de cilindro de 2,5 ms.
+
+Se os setores estiverem armazenados em posições diferentes, de tal forma que nenhum setor esteja adjacente a outro. Então o tempo de acesso 
+será dado pela soma de 20.480 operações individuais. Para cada uma delas, o tempo será de aproximadamente 20,4 ms, como mostra o cálculo abaixo.
+
+CASO 1 – Setores separados
+
+Tempo médio de busca por setor........... 13,5 ms
+Latência rotacional média.......................... 6,7 ms
+Transferência de dados...........................,... 0,2 ms
+Tempo total por setor............................... 20,4 ms
+Tempo total dos 20.480 setores.......... 417,8 segundos (±7 minutos)
+Entretanto, se os setores estiverem agrupados em blocos de 8 unidades, então apenas um movimento de acesso será necessário para cada bloco.
+
+CASO 2 – Blocos com 8 setores contíguos.
+
+Tempo médio de busca por setor........,.. 13,5 ms
+Latência rotacional média.......................... 6,7 ms
+Transferência de dados.............................. 1,7 ms
+Tempo total por bloco............................. 21,9 ms
+Tempo total dos 2.560 blocos............... 56,1 segundos
+Finalmente, se todos os setores estiverem um único e grande bloco, apenas um acesso será necessário. Porém, como cada trilha armazena apenas 32.256 bytes (63 setores), 
+326 trilhas serão necessárias. Isso implica em um tempo extra para 325 mudanças de cabeçote. Da mesma forma, como cada cilindro possui 16 trilhas, os dados estarão 
+distribuídos em 21 cilindros.
+
+CASO 3 – Um bloco de 10 MB
+
+Tempo médio de busca por setor................ 13,5 ms
+Latência rotacional média............................... 6,7 ms
+Transferência de dados............................... 334,4 ms
+Tempo de 325 mudanças de cabeçote.... 325,0 ms
+Tempo de 20 mudanças de cilindro............ 50,0 ms
+Tempo total......................................................... 4,7 segundos
+Os setores iniciais de cada trilha nem sempre estão alinhados nos discos rígidos modernos, ou seja, o setor 0 de uma trilha, pode estar ligeiramente deslocado do setor 
+0 de outra trilha. Esse deslocamento é feito intencionalmente pelo fabricante para evitar que as mudanças de cabeçote e de cilindro provoquem mais latência rotacional.

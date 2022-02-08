@@ -1,0 +1,112 @@
+Interfaces controladoras
+- Os discos rígidos são conectados aos computadores através das interfaces controladoras. É através delas que fluem os dados sendo lidos ou escritos nos discos. 
+As interfaces mais comuns são a IDE/ATA (Integrated Drive Electronics/AT Attachment) e SCSI (Small Computer Systems Interface). A primeira é mais barata e recomendada 
+para aplicações isoladas, enquanto a segunda apresenta melhor desempenho e é indicada para sistemas de maior porte.
+
+*********************
+
+Geometria do disco rígido
+- Cada prato de um disco rígido é dividido em anéis concêntricos chamados de trilhas. Cada trilha é composta por vários setores, nos quais as informações são gravadas.
+Na parte superior dessa figura (círculo), podemos ver a superfície de um prato, dividida em trilhas concêntricas e essas trilhas divididas em setores. Do lado direito, 
+podemos ver a representação do cabeçote, que se movimenta apenas horizontalmente, isto é, da borda para o centro da superfície.
+A parte inferior da figura mostra que o disco é, na verdade, uma pilha de pratos, cada um com suas superfícies superior e inferior. O conjunto de trilhas de todas as 
+superfícies (ex.: trilha 0 de todas as superfícies) é chamado de cilindro. Do lado direito da figura inferior, é possível ver que todos os cabeçotes ficam presos a um 
+braço e, assim, se movem como uma única peça. E isso permite a ideia de leitura por cilindros.
+
+*********************
+
+Leitura e escrita nos discos rígidos
+- A leitura ou escrita nos discos rígidos não é feita através da transferência dos dados de toda uma superfície de um determinado prato antes de passar para outra superfície, 
+pois cada mudança de trilha em uma mesma superfície implica no reposicionamento do cabeçote, que é um movimento mecânico e lento.
+O processo é feito através da transferência dos dados armazenados nas trilhas já acessíveis em todas as superfícies, antes de qualquer movimento mecânico. Considerando que os 
+cabeçotes são movimentados juntos, quando o cabeçote da primeira superfície estiver posicionado, por exemplo, na trilha 37 de sua superfície, todos os outros cabeçotes também 
+estarão posicionados nas trilhas 37 de suas respectivas superfícies. Assim, todas as trilhas 37, de todas as superfícies, serão processadas antes que qualquer trilha 38 seja 
+acessada.
+Por causa dessa forma de operação, o conjunto de trilhas de mesma posição é chamado de cilindro. O cilindro 37, por exemplo, é composto por todas as trilhas 37 das superfícies.
+Um cilindro não existe fisicamente. É apenas usado na forma de endereçamento de setores conhecida como CHS (Cylinders, Heads and Sectors). Essa forma de endereçamento, 
+no entanto, deixou de ser usada por ter limitações desnecessárias (quantidade de bits usadas em cada uma das três variáveis). Atualmente, os setores são apenas endereçados 
+apenas por um número sequencial.
+
+*********************
+
+Setores
+- Até 2011, em muitos HDs, os setores tinham 512 bytes de espaço para armazenamento de dados. A partir de 2011, os HDs passaram a adotar setores de 4096 bytes, em uma estrutura
+conhecida como Advanced Format. Tipicamente, os setores contém a seguinte estrutura:
+
+Identificação – localização física do setor (número, cilindro e prato).
+Campos de controle – dados utilizados internamente para orientação no processo de leitura.
+Dados – dados do usuário.
+ECC (Error Correction Code) – código para correção de bits lidos incorretamente. Esse código é gerado na gravação dos dados.
+Espaço (Gap) – espaço entre setores para dar tempo à controladora processar o que já leu e também para diminuir a necessidade de precisão nas leituras.
+
+O campo Identificação também é usado para indicar se o setor é defeituoso ou se ele foi remapeado. Setores remapeados são setores defeituosos que foram substituídos por setores 
+reserva para manter a capacidade total do disco. Todo disco rígido moderno é fabricado com vários setores reserva disponíveis para essas substituições e esse processo é
+transparente para o usuário.
+
+*********************
+
+Setorização multizona
+- As superfícies são divididas em trilhas e estas em setores. Nos HDs iniciais, a quantidade de setores em todas as trilhas era sempre a mesma, como mostra o lado (a) da figura 
+abaixo. Porém, como todos os setores possuem a mesma quantidade de bytes, os setores externos possuem uma densidade de bits muito inferior à dos setores internos e, assim, há 
+uma subutilização do disco. Para evitar esse desperdício de espaço, os discos mais modernos utilizam zonas (conjuntos de trilhas adjacentes) com quantidades diferentes de 
+setores, como mostra o lado (b) da figura. As zonas mais externas possuem mais setores que as zonas internas. Esse esquema é chamado de setorização multizona (Zone Bit Recording).
+
+*********************
+
+Capacidade de um disco rígido
+- Na antiga forma de endereçamento por CHS, a capacidade de armazenamento de um disco rígido podia ser calculada através de sua geometria. Esse cálculo era feito através das 
+seguintes fórmulas:
+
+Tamanho do setor = 512 bytes
+Tamanho da trilha = tamanho do setor * número de setores por trilha
+Tamanho do cilindro = tamanho da trilha * número de trilhas por cilindro
+Tamanho do disco = tamanho do cilindro * número de cilindros
+O número de trilhas por cilindro é o mesmo número de superfícies. Como há um cabeçote por superfície, esse valor também poderia ser especificado como o número de cabeçotes.
+
+Se considerarmos, por exemplo, um disco cuja geometria seja 63 setores, 16 cabeçotes e 1060 cilindros, teríamos:
+
+Tamanho da trilha = 512 bytes * 63 setores = 32.256 bytes
+Tamanho do cilindro = 32.256 bytes * 16 cabeçotes = 516.096 bytes
+Tamanho do disco = 516.096 bytes * 1.060 cilindros = 547.061.760 bytes
+A capacidade de armazenamento desse disco seria 521,7 MB. Era comum, entretanto, os fabricantes especificarem a capacidade do disco considerando que cada megabyte equivale 
+a 1.000.000 de bytes. Assim, a capacidade que provavelmente seria especificada para esse disco rígido é 547 MB.
+
+Além do endereçamento por CHS ser obsoleto, esse cálculo não considera discos com setorização multizona. O procedimento mais correto para esses casos seria obter as 
+informações de cada zona.
+
+*********************
+
+Geometria física versus geometria lógica
+- A BIOS (Basic Input/Output System) é o canal de comunicação entre os softwares, principalmente o sistema operacional, e a interface controladora do disco rígido. 
+Entretanto, ela possui limitações que complicam o uso dos discos.
+
+Uma BIOS antiga baseada no endereçamento CHS não reconhecia a setorização multizona em discos rígidos IDE/ATA. Também não reconhecia discos IDE/ATA maiores que 8,4 GB. 
+Isso criava a necessidade da distinção entre a geometria física, que representa da realidade do disco rígido, e a geometria lógica, que é a forma como a BIOS entende o 
+disco rígido. A geometria lógica representa uma tradução da geometria física.
+
+O maior disco IDE que a BIOS conseguia enxergar era o de 8,4 GB (ou 7,8 GB binários) porque tinha como limites de especificação de geometria os seguintes valores: 63 
+setores (6 bits, mas o setor 0 não é usado), 256 cabeças (8 bits) e 1.024 cilindros (10 bits). Entretanto, os discos rígidos modernos superam em muito isso.
+
+Tão logo os fabricantes de discos atingiram esse limite, a BIOS foi estendida com novas rotinas, mas sem alterar as básicas, pois seria muito complicado não manter a 
+compatibilidade com dispositivos de hardware mais velhos e instalados em milhões de computadores. Essa extensão reconhecia a geometria física dos discos rígidos. A 
+tabela abaixo mostra a comparação entre a geometria lógica e física de um disco rígido (ainda antigo). De qualquer forma, o endereçamento baseado em CHS foi substituído 
+pelo endereçamento de bloco lógico.
+
+*********************
+
+Endereçamento de blocos lógicos
+- O modo de endereçamento chamado de LBA (Logical Block Addressing) se tornou o padrão utilizado por fabricantes de discos há vários anos. O LBA não endereça os setores 
+através da especificação CHS (Cylinder, Head e Sector) usual, mas através de um número sequencial, iniciado em zero. Assim, cada setor possui um número único, independente 
+do cilindro, da superfície ou da posição na trilha em que esteja. A capacidade de endereçamento de setores por LBA é, atualmente, de 48 bits, ou seja, é possível ter discos 
+rígidos cerca de 281 trilhões de setores e uma capacidade de armazenamento de até 128 petabytes. Já há, no entanto, esquemas estendidos de 64 bits em desenvolvimento 
+(capazes de armazenar até 9,44 zettabytes).
+
+É possível fazer um mapeamento entre os modos de endereçamento CHS e LBA, por meio da seguinte fórmula:
+
+LBA = ( C x MAX_H + H ) x MAX_S + ( S – 1 )
+
+em que,
+
+C, H e S são, respectivamente, cilindros (C), cabeçotes (H) e setores (S),
+MAX_H é o número máximo de cabeçotes por cilindro e
+MAX_S é o número máximo de setores por trilha.
