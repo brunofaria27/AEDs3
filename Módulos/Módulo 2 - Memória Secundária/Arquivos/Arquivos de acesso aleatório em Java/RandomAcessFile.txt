@@ -1,0 +1,13 @@
+O acesso sequencial, como vimos até agora, é a forma mais eficiente de acesso aos dados em disco, considerando a natureza desses dispositivos. No entanto, o acesso sequencial 
+é insuficiente para muitas aplicações, que dependem de um acesso aleatório. Por exemplo, no sistema da nossa universidade, quando eu preciso acessar os dados da minha 
+disciplina, não quero ter que percorrer todas as disciplinas anteriores que estejam no mesmo arquivo; eu quero ir direto para a disciplina buscada.
+Até este momento, eu vinha afirmando que o acesso aleatório não é tão eficiente quanto o acesso sequencial, mas isso só é mesmo uma verdade quando estamos falando de acesso 
+a muitos e muitos dados. Se eu estiver procurando um único registro, então há formas mais eficientes para recuperarmos esses dados.
+
+No vídeo, vimos, portanto, que usamos apenas uma única classe, a RandomAccessFile, para fazermos leitura e escrita e que há apenas um ponteiro que indica qual será a próxima 
+posição a ser lida ou escrita. Esse ponteiro pode ser identificado por meio do método getFilePointer() e pode ser movimentado por meio do método seek(). 
+
+Mas, mesmo que tenhamos todas essas facilidades usando o acesso aleatório, é importante lembrar duas coisas:
+
+Os métodos usados no acesso aleatório (com algumas poucas excessões) são os mesmos que usamos no acesso sequencial;
+O acesso sequencial para um volume maior de dados é sempre mais rápido que o acesso aleatório, considerando as características dos atuais dispositivos de memória secundária.

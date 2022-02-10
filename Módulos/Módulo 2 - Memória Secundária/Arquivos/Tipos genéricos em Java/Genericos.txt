@@ -1,0 +1,180 @@
+Uma das situações mais comuns que encontramos no desenvolvimento de sistemas é necessidade de criação de rotinas repetitivas, porém com dados diferentes. 
+Por exemplo, em um sistema qualquer, podemos precisar criar rotinas de inclusão, alteração e exclusão de usuários, bem como de inclusão, alteração e 
+exclusão de clientes, de produtos, de eventos, etc.
+Ao invés de recriarmos essas rotinas para cada tipo de dados, podemos criá-las usando tipos genéricos, que serão substituídos por tipos específicos 
+(usuários, clientes, produtos, eventos, ...) quando necessário.
+A classe ArrayList (que funciona como um vetor) é uma classe que trabalha com tipos genéricos. Dessa forma, eu posso criar as seguintes coleções:
+
+List<Usuario> usuarios = new ArrayList<Usuario>();
+List<Cliente> clientes = new ArrayList<Cliente>();
+List<Produto> produtos = new ArrayList<Produto>();
+
+Cada uma dessas coleções só poderá armazenar objetos do tipo específico indicado no operador diamante (<>). Porém, como esse tipo é definido previamente, 
+não precisamos fazer a coerção de tipos (type casting) ao recuperarmos um objeto da coleção. Veja esse exemplo:
+
+List<String> lista = new ArrayList<String>();
+lista.add("Olá mundo!");
+String s = lista.get(0);   // não é necessária a coerção de tipos
+
+Ao usar um tipo genérico, o programador não precisa implementar a coleção (ou qualquer outra classe) para cada tipo diferente do seu sistema.
+
+**********************************************
+
+A CLASSE CAIXA
+
+Considere que tenhamos uma classe que representa uma caixa de objetos. Essa caixa comporta apenas um único objeto e possui dois métodos: 
+armazena() e recupera(). A caixa pode ser implementada da seguinte forma:
+
+public class Caixa {
+  private Object objeto;
+
+  public void armazena(Object objeto) {
+    this.objeto = objeto;
+  }
+
+  public Object recupera() {
+    return this.objeto;
+  }
+}
+
+Da forma como foi criada, a caixa pode armazenar qualquer tipo de objeto. Porém, ela não identifica que tipo de objeto foi armazenado. 
+Isso nos exige fazer a coerção de tipos toda vez que recuperarmos esse objeto. Veja o seguinte exemplo de uso:
+
+Caixa caixa = new Caixa();
+caixa.armazena(new String("Olá mundo"));
+String s = (String)caixa.recupera();
+
+Se tentaremos recuperar um objeto diferente daquele armazenado, teremos um erro de execução. Não há como o compilador evitar o erro, 
+pois não sabe que tipo de objeto poderá ser armazenado.
+
+**********************************************
+
+A VERSÃO DO TIPO GENÉRICO DA CAIXA
+
+Com uma pequena alteração no código da caixa, podemos informar ao compilador que tipo de objeto cada caixa (instância da classe Caixa) 
+armazena. Em primeiro lugar, precisamos alterar o código da própria classe:
+
+public class Caixa<T> {
+  private T objeto;
+
+  public void armazena(T objeto) {
+    this.objeto = objeto;
+  }
+
+  public T recupera() {
+    return this.objeto;
+  }
+}
+
+Agora a classe Caixa armazena objetos do tipo T. O nome T, aqui, é apenas um nome genérico (ou tipo genérico), que será substituído 
+pelo tipo especificado na criação das caixas. Para isso ficar mais claro, veja os seguintes exemplos de criação de caixas:
+
+Caixa<Integer> caixaDeInteiro = new Caixa<>();
+Caixa<String>  caixaDeString  = new Caixa<>();
+Caixa<Produto> caixaDeProduto = new Caixa<>();
+
+Como você pode observar, a caixa poderá ser criada para qualquer tipo de objeto. No primeiro exemplo, o tipo T será substituído por 
+Integer. No segundo exemplo, o tipo T será substituído por String. No terceiro exemplo, será substituído por Produto.
+Obviamente, a nossa expectativa aqui é que o compilador acuse um erro se tentarmos armazenar uma string na caixaDeInteiro e que nos 
+pouco de coerção de tipos na chamada do método recupera().
+
+**********************************************
+
+CONVENÇÕES DE NOMES
+
+Quando criamos tipos genéricos, geralmente os designamos por T. Existem, porém, outras recomendações de nomes em Java. as sugestões são:
+
+E - elemento (geralmente quando a classe terá vários objetos de um coleção)
+K - chave
+V - valor
+N - número
+T - tipo (primeiro tipo)
+S, U, V, ... - outros tipos (segundo tipo, terceiro tipo, quarto tipo, ...)
+
+**********************************************
+
+OPERADOR DIAMANTE
+
+O operador diamante é apenas a combinação dos símbolos < e >. Esse operador delimita o tipo que será usado na classe. Como, porém, a 
+definição do tipo já é feita na declaração da variável, não há necessidade de repeti-la na criação da instância. Assim, a notação 
+convencional é:
+
+Caixa<Integer> c = new Caixa<>();
+
+**********************************************
+
+ACESSO EM METÓDOS EM TIPOS GENÉRICOS
+
+Um tipo genérico pode ser substituído por absolutamente qualquer tipo. Dessa forma, não podemos inferir nada sobre esse tipo 
+(a não ser aqueles métodos herdados da classe Object). Se quisermos que o tipo genérico tenha algum método disponível para uso, 
+precisamos que ele implemente uma interface.
+Por exemplo, suponha que tenhamos um sistema que gerencie clientes e produtos. Tanto os clientes quanto os produtos terão um atributo 
+identificador id e um método recuperaId(). Criaremos uma classe Arquivo que deverá gerenciar clientes ou produtos e, para isso, adotará 
+tipos genéricos. Mas (por uma razão qualquer) precisamos que essa classe tenha acesso ao método GetID().
+
+Para fazermos isso, precisamos, em primeiro lugar, criar uma interface com os métodos que devem estar disponíveis para a classe Arquivo:
+
+public interface Entidade {
+  public int getID();
+}
+
+Em seguida, precisamos fazer com que cada tipo implemente essa interface:
+
+public class Cliente implements Entidade {
+  protected int idCliente;
+
+  public int getID() {
+    return idCliente;
+  }
+  ...
+}
+
+public class Produto implements Entidade {
+  protected int idProduto;
+
+  public int getID() {
+    return idProduto;
+  }
+  ...
+}
+
+Agora, precisamos, na classe Arquivo, assegurar que o tipo genérico também adote essa interface:
+
+public class Arquivo<T extends Entidade> {
+  ...
+}
+
+Observe que o tipo T, aqui, estende a interface ao invés de implementá-la, pois quem fará isso são as classes Cliente e Produto.
+
+**********************************************
+
+CRIAÇÃO DE INSTÂNCIAS
+
+Como o tipo T não é um tipo definido, não podemos criar uma instância a partir de uma declaração como:
+
+T obj = new T();   // instrução inválida
+
+Podemos contornar esse problema, passando, à classe que usará o tipo genérico (ex., Arquivo), uma referência para a o construtor 
+da classe que substituirá esse tipo. Em outras palavras, se não há um construtor para o tipo genérico, então passaremos o construtor 
+que nos interessa como um parâmetro para essa classe.
+Podemos fazer isso na criação da sua instância:
+
+Arquivo<Cliente> arquivoDeClientes = new Arquivo<>(Cliente.class.getConstructor());
+Arquivo<Produto> arquivoDeProdutos = new Arquivo<>(Produto.class.getConstructor());
+
+Na classe Arquivo, precisamos receber e armazenar essa referência, da seguinte forma:
+
+public class Arquivo<T extends Entidade> {
+  Constructor<T> construtor;
+  
+  public Arquivo(Constructor<T> construtor) {
+    this.construtor = construtor;
+  }
+  ...
+}
+
+Agora, dentro de qualquer método da classe Arquivo, podemos usar a seguinte instrução:
+
+T objeto = this.construtor.newInstance();
+
+E você pode usar esse novo objeto como melhor lhe convier. 

@@ -1,0 +1,12 @@
+Uma das alternativas para a leitura e escrita de objetos é transportar todos os métodos responsáveis pela leitura e pela escrita de seus atributos para dentro da própria 
+classe do objeto.
+Os programas que desenvolveremos precisarão ler e escrever objetos de diferentes tipos nos arquivos. Se colocarmos os códigos responsáveis por essas operações dentro do 
+programa principal, ele ficará um tanto confuso. Precisaremos nos certificar sempre de que todos os atributos estão sendo escritos ou lidos corretamente e na ordem certa. 
+Para evitarmos o risco de confusão, é mais seguro transportarmos a leitura e escrita desses atributos, isto é, do registro, para dentro de cada classe do próprio objeto.
+Assim, em cada classe, teremos métodos para leitura e escrita de registros em arquivos
+
+Você deve ter observado que, nesse vídeo, usamos duas classes de apoio: ByteArrayOutputStream. e ByteArrayInputStream. Essas duas classes funcionam de forma parecida a 
+FileOutputStream e FileInputStream, mas ao invés de fazerem escrita e leitura para arquivos, fazem essas operações para memória - usando também a ideia de fluxos de entrada 
+e de saída.
+Outra informação importante apresentada no vídeo é que o registro de cada objeto será precedido por um indicador de tamanho. Dessa forma, o programa principal não precisa 
+entender que informações o registro contém - apenas precisa ser capaz de ler e escrever vetores de bytes de tamanho variável (os registros).

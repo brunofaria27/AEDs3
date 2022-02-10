@@ -8,7 +8,6 @@ executa um único acesso aleatório.
 Como apresentado no vídeo, o tempo de uma operação em disco é determinado por dois fatores: tempo de acesso aos dados e tempo de transferência dos dados.
 
 O tempo de acesso é o tempo necessário para o cabeçote ser posicionado no setor desejado. Esse tempo é a soma do tempo de busca e da latência rotacional.
-
 O tempo de busca é o tempo necessário para que o cabeçote se posicione no cilindro desejado. Como ele pode iniciar esse movimento a partir que qualquer cilindro, 
 o tempo de busca é especificado de uma ou mais das seguintes formas:
 
