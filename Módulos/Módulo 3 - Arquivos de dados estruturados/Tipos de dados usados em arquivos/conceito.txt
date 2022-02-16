@@ -1,0 +1,28 @@
+Tipos primitivos são os tipos de informação básicos encontrados em uma linguagem de programação. No entanto, em muitas linguagens, as strings também podem ser 
+manipuladas de forma parecida aos demais tipos primitivos.
+
+Como temos visto até agora, um registro é apenas uma sequência de bytes que descreve uma entidade. Assim, precisamos saber como criar essa sequência de bytes dessa entidade. 
+
+Na verdade, o que realmente precisamos saber fazer é converter cada atributo da entidade em um campo, isto é, criar a sequência de bytes que descreve cada atributo. 
+Mas fazer isso na mão é muito trabalhoso, especialmente quando sabemos que as linguagens de programação já possuem recursos que fazem isso automaticamente. No entanto, 
+elas só fazem essa conversão automática quando usamos tipos primitivos (byte, short, int, long, float, double, boolean, char e, eventualmente, strings). Assim, precisamos 
+descrever cada atributo da entidade por meio de um ou mais tipos primitivos.
+
+Para facilitar consultas futuras, vamos repetir aqui quais são os valores possíveis para cada tipo:
+
+Tipo        Descrição	                                                Valores
+byte        Número inteiro de 8 bits com sinal	                        -128 a 127
+short       Número inteiro de 16 bits com sinal	                        -32.768 a +32.767
+int	        Número inteiro de 32 bits com sinal	                        -2.147.483.648 a 2.147.483.647
+long        Número inteiro de 64 bits com sinal	                        -9.223.372.036.854.775.808  a  +9.223.372.036.854.775.807
+float       Número de ponto flutuante de 32 bits com sinal 	            ±1,40129846e-45  a  ±3,40282347e+38
+double	    Número de ponto flutuante de 64 bits com sinal 	            ±4,94065645841246544e-324  a  ±1,79769313486231570e+308
+char        Caractere ASCII (1 byte) ou Unicode de 16 bits (2 bytes)    Qualquer caractere
+boolean	    Variável lógica que indica falso ou verdadeiro (1 byte)	    true ou false
+
+Além desses tipos, geralmente as linguagens de programação também oferecem métodos para leitura e escrita de strings usando a codificação UTF-8. Essa codificação é 
+apresentada na próxima página.
+
+Para te ajudar a ver como alguns valores seriam escritos na forma de bytes, eu criei uma pequena página que faz algumas conversões.
+
+PROJETO: https://replit.com/@kutova/Conversoes

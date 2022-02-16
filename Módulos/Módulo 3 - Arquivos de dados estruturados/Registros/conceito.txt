@@ -1,0 +1,8 @@
+Registros são sequências de bytes que representam as entidades em um arquivo. Geralmente os registros também contém metadados sobre as entidades além dos atributos destas. 
+Os registros podem ser de tamanho fixo ou de tamanho variável.
+
+Vamos dar uma olhada mais a fundo nos registros? A essa altura, eu espero que você já tenha entendido o que é um registro. O que veremos agora é como lidar com o tamanho 
+do registro.
+Os registros podem ser de tamanho fixo (em bytes) ou de tamanho variável. Geralmente eles são de tamanho variável quando há algum campo também de tamanho variável. Nesse 
+caso, precisaremos de algum mecanismo para saber qual é o tamanho de cada registro. 
+Na nossa disciplina, nós usaremos principalmente os registros de tamanho variável com indicadores de tamanho.

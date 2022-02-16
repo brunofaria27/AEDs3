@@ -1,0 +1,21 @@
+Uma codificação de caracteres é uma forma de dizer qual é o valor numérico cada caractere (ou símbolo) disponível em um determinado sistema. Geralmente esses valores 
+numéricos são representados de forma binária.
+
+Todas as informações armazenadas nos computadores, independentemente dos seus tipos, devem ser armazenas como sequências de um ou mais bytes. Um texto, por exemplo, 
+é composto por caracteres e cada caractere é armazenado como byte. Já uma imagem é composta por uma sequência de pixels e cada pixel também é composto por alguns bytes. 
+Cada byte é uma sequência de 8 bits. Tomemos, por exemplo, o byte 01000001. Esse número binário corresponde a 65 no sistema decimal e a 0x41 no sistema hexadecimal. 
+Além do seu valor como número, esse byte também é usado para identificar a letra A (maiúscula).
+Esse mapeamento do valor 65 (ou do número binário 01000001) na letra A faz parte da codificação ASCII, que é a codificação de caracteres básica mais usada nos sistemas 
+computacionais. Como você deve imaginar, essa codificação usa o valor 66 para a letra B, o valor 67 para a letra C e assim em diante. As letras minúsculas começam a partir 
+do valor 97 (a = 97; b = 98; c = 99; ...).
+Enfim, uma codificação de caracteres nada mais é do que o mapeamento de caracteres em números exclusivos. Na verdade, não apenas as letras do alfabeto são codificadas, 
+mas também os dígitos, os sinas de pontuação, os símbolos matemáticos e muito mais. E essas codificações para essenciais para que possamos trabalharmos com textos nos 
+computadores (já que eles só lidam com bytes).
+O problema é não existe só uma codificação e isso já gerou muita confusão na troca de dados entre países (especialmente na navegação por sites de países que adotam outros 
+idiomas). Para resolver essa confusão, várias organizações se uniram para criar uma codificação universal, que recebeu o nome de Unicode (e a organização recebeu o nome de 
+Unicode Consortium). Bem, na verdade, eles criaram mais de uma codificação de caracteres e, assim, dizemos que eles criaram um sistema de codificação de caracteres.
+
+Como você viu, só usaremos o UTF-8 nesta disciplina (e provavelmente em todos os sistemas que você venha a desenvolver no futuro). Por hora, é apenas importante guardar 
+esse recomendação (quase que uma obrigação) e se lembrar que a UTF-8 é uma codificação de tamanho variável. Assim, não dá para dizer que uma string de 10 caracteres gaste 
+10 bytes. Isso dependerá dos caracteres que essa string contém. Caracteres simples (que fazem parte da ASCII) usarão apenas 1 byte e as letras  acentuadas gastarão 2 bytes. 
+Quanto aos símbolos especiais, será necessário consultar o site do Unicode para ver quantos bytes cada símbolo usa.

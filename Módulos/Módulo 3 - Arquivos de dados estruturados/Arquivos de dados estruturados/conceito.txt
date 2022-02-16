@@ -1,0 +1,11 @@
+Dados estruturados são dados que seguem um padrão para descrever algo, isto é, que eles oferecem uma estrutura pré-definida para se descrever algo. 
+
+Todo arquivo é apenas uma sequência de bytes. Assim, para armazenarmos nossas informações em um arquivo, precisamos saber como representá-las por meio de bytes.
+
+Os principais termos citados no vídeo foram:
+
+- Uma entidade é uma coisa ou objeto do mundo real, que pode ser físico  (ex.: pessoa, carro, produto, ...) ou abstrato (ex.: evento,  cargo, matrícula, ...).
+- Um atributo é uma propriedade que ajuda a descrever uma entidade. Por exemplo, se a entidade representar um funcionário, então os atributos podem ser: nome, data 
+de nascimento, endereço, telefone e email; se a entidade representar um evento, então os atributos podem ser: descrição, data, horário, local e observações.
+- Um registro é uma sequência de bytes em um arquivo que contém uma entidade.
+- Um campo é uma parte do registro, também na forma de uma sequência de bytes, que contém um atributo da entidade.
