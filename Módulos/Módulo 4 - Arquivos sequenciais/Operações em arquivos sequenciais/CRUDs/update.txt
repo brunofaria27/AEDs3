@@ -1,0 +1,23 @@
+01: algoritmo update(novoObjeto)
+02:   mover para o primeiro registro do arquivo (após cabeçalho)
+03:   enquanto não atingir o fim do arquivo
+04:     pos ← posição do ponteiro
+05:     ler próximo registro
+06:     se registro.lapide ≠ '*'
+07:       então extrair objeto do registro
+08:             se objeto.ID = novoObjeto.ID
+09:               então criar novoRegistro para novoObjeto
+10:                     se novoRegistro.tamanho ⩽ registro.tamanho
+11:                       então mover para pos
+12:                             escrever novoRegistro mantendo ind.tam.
+13:                       senão mover para pos
+14:                             escrever lápide como excluído
+15:                             mover para fim do arquivo
+16:                             escrever novoRegistro
+17:                       fim-se
+18:                       retornar verdadeiro e terminar
+19:             fim-se
+20:     fim-se
+21:   fim-enquanto
+22:   retornar falso
+23: fim-algoritmo

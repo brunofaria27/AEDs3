@@ -1,0 +1,13 @@
+01: algoritmo read(ID)
+02:   mover o ponteiro para o primeiro registro (após o cabeçalho)
+03:   enquanto não atingir o fim do arquivo
+04:     ler próximo registro
+05:     se registro.lapide ≠ '*'
+06:       então extrair objeto do registro
+07:             se objeto.ID = ID
+08:               então retornar objeto e terminar
+09:             fim-se
+10:     fim-se
+11:   fim-enquanto
+12:   retornar objeto vazio // null
+13: fim-algoritmo

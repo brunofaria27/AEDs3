@@ -1,0 +1,23 @@
+Os identificadores são valores que identificam as entidades de forma exclusiva, especialmente nos relacionamentos entre elas.
+
+Em todo sistema, precisamos identificar as entidades de forma exclusiva. Precisamos saber que um cliente A não é um cliente B;
+que um produto A não é um produto B e assim em diante. No mundo real, geralmente nos identificamos por dados como: nome, email,
+CPF, CNPJ, RG, número de matrícula, etc. Da mesma forma, identificamos os veículos pelo Renavam, pela placa ou pelo número do
+chassi; identificamos as músicas pela combinação do nome da música e do nome da banda; identificamos os livros pela combinação
+do nome do livro e do nome do autor; e assim em diante.
+
+No entanto, nos sistemas computacionais, dados assim não são a melhor opção para identificarmos as entidades nas suas relações
+internas desses sistemas. Acabamos usando apenas números sequenciais que não carregam nenhum significado, isto é, um cliente de
+identificador 001 não tem qualquer relação com esse número - apenas é o número dele e que não se repete nunca. Além disso, não
+existe qualquer relação entre um cliente 001 e um cliente 002. Apenas são clientes diferentes. E sabe por que os números sequenciais
+são a melhor forma de identificar entidades?
+Resposta: 
+
+Então, como você viu no vídeo, essas são as questões mais importantes sobre os identificadores:
+- IDs são números sequenciais, exclusivos, não significativos e não reusáveis;
+- IDs são usados nas relações internas entre as entidades e não devem precisar ser conhecidos ou memorizados pelos usuário; 
+- A busca por entidades deve continuar sendo feita por valores do mundo real (nomes, emails, placas, títulos, etc.).
+- Os metadados do arquivo, inclusive o último ID usado, podem ser mantidos no cabeçalho do próprio arquivo.
+
+Nós aprenderemos as principais operações dos arquivos (inclusão, alteração, exclusão e buscas) usando arquivos sequenciais.
+No entanto, tão logo conheçamos os arquivos de acesso aleatório, passaremos a trabalhar quase que exclusivamente com eles.

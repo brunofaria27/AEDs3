@@ -1,0 +1,16 @@
+01: algoritmo delete(ID)
+02:   mover o ponteiro para o primeiro registro (após o cabeçalho)
+03:   enquanto não atingir o fim do arquivo
+04:     pos ← posição do ponteiro
+05:     ler próximo registro
+06:     se registro.lapide ≠ '*'
+07:       então extrair objeto do registro
+08:             se objeto.ID = ID
+09:               então mover para pos
+10:                     escrever lápide como excluído
+11:                     retornar verdadeiro e terminar
+12:             fim-se
+13:     fim-se
+14:   fim-enquanto
+15:   retornar falso
+16: fim-algoritmo

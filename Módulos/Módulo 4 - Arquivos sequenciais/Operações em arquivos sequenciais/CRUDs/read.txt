@@ -1,0 +1,14 @@
+01: algoritmo read(critérios)
+02:   criar conjunto vazio
+03:   mover o ponteiro para o primeiro registro (após o cabeçalho)
+04:   enquanto não atingir o fim do arquivo
+05:     ler próximo registro
+06:     se registro.lapide ≠ '*'
+07:       então extrair objeto do registro
+08:             se objeto atender aos critérios
+09:               então adicionar objeto ao conjunto
+10:             fim-se
+11:     fim-se
+12:   fim-enquanto
+13:   retornar conjunto 
+14: fim-algoritmo

@@ -1,0 +1,24 @@
+As quatro operações básicas que fazemos com registros são a criação (create), a leitura (read), a atualização (update) e a exclusão (delete). 
+As iniciais dos nomes em inglês dessas operações formam o acrônimo CRUD.
+
+As quatro operações básicas realizadas em armazenamentos permanentes (arquivos) são: Create, Read, Update e Delete (CRUD). Como você deve imaginar, 
+o método create é usado para inserirmos uma nova entidade no arquivo; o método read é usado para recuperarmos dados de uma entidade no arquivo; o 
+método update é usado para atualizarmos os dados da entidade; e o método delete é usado para excluirmos a entidade.
+
+Algumas vezes, essas operações serão realizadas com um único registro outras vezes com vários registros. Por exemplo, nós podemos ter um método 
+read que faz a leitura de um registro por meio de um ID. Como IDs são valores exclusivos, apenas uma entidade será retornada. No entanto, nós 
+também podemos ter um outro método read que faz uma leitura baseado em um critério mais flexível como data de aniversário em um conjunto de pessoas, 
+um modelo de carro em um conjunto de veículos ou, ainda, um gênero em um conjunto de filmes. Nesses casos, esse método poderá retornar várias entidades.
+
+Na verdade, cada método do CRUD pode ter várias implementações, desde que com assinaturas diferentes (parâmetros recebidos e valor retornado). 
+Assim, você poderia, em arquivo de usuários, implementar um método read para fazer a leitura por ID, outro método read para fazer a leitura por 
+e-mail e um terceiro método read para fazer a leitura por termos dos nomes (exs.: "Ana", "Carlos", "João", "Paula", ...). Enquanto as duas primeiras 
+implementações retornariam apenas uma entidade, a terceira certamente retornaria um conjunto maior de usuários - aqueles que tivessem esses termos 
+nos seus nomes.
+
+A ideia do lápide ficou clara para você? É apenas um campo (e não um atributo) que nos ajuda a identificar se um determinado registro é um registro 
+válido ou não. Isso nos poupa das movimentações de registros a cada exclusão.
+
+Muito bem, para facilitar a sua vida quando você tiver que implementar um CRUD, deixo abaixo os algoritmos citados no vídeo. Lembre-se, porém, que 
+esses algoritmos se baseiam em acesso sequencial (porque estamos falando de arquivos sequenciais). Nas próximas unidades, veremos alternativas mais 
+eficientes para acesso aleatório.

@@ -1,0 +1,9 @@
+Arquivos sequenciais são arquivos em que os registros são acessados na ordem em que estão armazenados no arquivo.
+
+Quando falamos em acesso sequencial a registros, estamos falando de acesso a vários registros e não apenas a um ou outro registro específico
+(o que é chamado de acesso aleatório). Em acessos sequenciais, geralmente existe algum critério na organização dos registros, isto é, algo que
+define a ordem deles. Esse critério é chamado de chave de ordenação e normalmente é determinado a partir de um ou mais campos do registro.
+Há, porém, a possibilidade de trabalharmos com arquivos sequenciais em que não há nenhuma chave de ordenação.
+
+Nós aprenderemos as principais operações dos arquivos (inclusão, alteração, exclusão e buscas) usando arquivos sequenciais. No entanto, tão logo
+conheçamos os arquivos de acesso aleatório, passaremos a trabalhar quase que exclusivamente com eles. 
