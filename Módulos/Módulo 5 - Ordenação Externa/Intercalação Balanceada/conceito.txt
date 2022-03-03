@@ -1,0 +1,30 @@
+A intercalação balanceada é um algoritmo de ordenação baseado na intercalação de alguns segmentos pré-ordenados (em memória principal). A ideia é que o arquivo seja dividido em 
+conjuntos desses segmentos ordenados, que vão sendo intercalados gerando segmentos maiores. Em seguida, esses segmentos maiores são novamente intercalados gerando novos segmentos 
+ainda maiores. O processo se repete até que só reste um único segmento ordenado com todos os dados.
+
+A intercalação balanceada de M caminhos é um algoritmo de intercalação que opera com arquivos temporários. Os dados são extraídos do arquivo principal em blocos que podem ser 
+ordenados em memória principal. Em seguida esses blocos são escritos nos arquivos temporários. Como geralmente haverá muito mais blocos do que arquivos temporários, cada arquivo 
+temporário conterá uma fila desses blocos como, por exemplo:
+
+Arquivo_temporário_1: B1 B4 B7 B10 ...
+Arquivo_temporário_2: B2 B5 B8 B11 ...
+Arquivo_temporário_3: B3 B6 B9 B12 ...
+Para garantir uma boa distribuição dos blocos, eles são escritos alternadamente entre os arquivos temporários.
+
+Em seguida, toma-se um bloco de cada arquivo temporário gerando um segmento ordenado maior. Serão, assim, gerados vários segmentos ordenados que serão distribuídos por um segundo 
+conjunto de arquivos temporários, também de forma balanceada:
+
+Arquivo_temporário_4: S1 S4 S7 S10 ...
+Arquivo_temporário_5: S2 S5 S8 S11 ...
+Arquivo_temporário_6: S3 S6 S9 S12 ...
+Nesse exemplo, o segmento S1 será composto pela intercalação dos blocos B1, B2 e B3; o segmento S2 será composto pela intercalação dos blocos B4, B5 e B6; e assim em diante. 
+
+Obs.: Aqui, estou chamando de bloco o conjunto de registros que foi ordenado em memória principal e estou chamando de segmento o conjunto de registros gerado por alguma intercalação. 
+Na verdade, blocos e segmentos são apenas conjuntos de registros e podemos dizer que o bloco é o menor segmento que teremos na ordenação. Eu optei por fazer assim, para lembrar que o 
+tamanho do bloco é a quantidade de registros que podem ser ordenados em memória principal e que os segmentos são maiores que isso. Se preferir, considere os termos bloco e segmento como 
+sinônimos. 
+
+O processo se repete, com a intercalação de um segmento de cada arquivo temporário, gerando segmentos ainda maiores e escritos em um novo conjunto de arquivos temporários (o primeiro 
+conjunto pode ser reaproveitado neste momento). 
+
+As intercalações de segmentos ordenados nos arquivos temporários só se acabam quando restar apenas um único segmento ordenado contendo todos os dados.

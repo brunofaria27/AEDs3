@@ -1,0 +1,16 @@
+A análise da complexidade do algoritmo Intercalação Balanceada se baseia no número de passadas pelo conjunto completo de registros, considerando tanto a etapa da distribuição 
+quanto a etapa das intercalações. A cada passada, os registros são copiados de um arquivo (ou conjunto de arquivos) para outro.
+
+Como o algoritmo de ordenação externa por intercalações balanceadas usa acesso sequencial, o tempo das leituras de registros individuais é ótimo. No entanto, a cada vez que 
+fazemos uma intercalação, precisamos ler todos os registros de uma conjunto de arquivos temporários e escrever esses registros em outro conjunto de arquivos temporários. 
+Chamaremos isso de passada pelo arquivo. Acontece uma vez na faz inicial de distribuição dos blocos ordenados pelos arquivos temporários e, sem seguida, ocorre novamente a 
+cada intercalação.
+
+A fórmula da complexidade mostrada no vídeo é:
+ - SLIDE
+
+sendo:
+- 1 o custo da etapa de distribuição
+- N o número total de registros;
+- b o tamanho do bloco ordenado em memória principal; e
+- m a quantidade de destinos usada na intercalação

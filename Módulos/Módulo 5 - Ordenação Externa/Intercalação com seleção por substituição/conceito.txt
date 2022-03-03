@@ -1,0 +1,18 @@
+Na intercalação balanceada, quanto maior forem os blocos ordenados gerados na fase de distribuição, menor será a quantidade de intercalações necessárias. 
+Para gerarmos blocos maiores na distribuição, podemos usar alguma estrutura de dados de apoio como um heap de mínimo.
+
+Como você viu nas páginas anteriores, quanto maiores forem os segmentos, menos intercalações precisaremos fazer. Porém, nós sabemos que o tamanho dos 
+segmentos é limitado pela capacidade de ordenação em memória principal. Na página anterior, de segmentos de tamanho variável, vimos como usar segmentos 
+de tamanho variável quando tivermos a sorte de eles estarem ordenados entre si.
+
+Bom, isso é não é bem verdade... nós não precisamos contar com a sorte para gerar segmentos maiores. Podemos usar uma estrutura de dados como uma fila 
+de prioridades para gerar, de forma planejada, segmentos maiores. Veremos como fazer isso aqui, usando um heap de mínimo, que é uma forma de fila de prioridades.
+
+Com esse heap de mínimo, nós poderemos usar uma estrutura de tamanho N para gerar segmentos de tamanho maior que N. Sabe como?
+
+Que tal você experimentar fazer alguns exercícios de intercalação balanceada com todas essas variações? Eu criei uma página para você conferir os seus resultados
+(https://intercalacoesbalanceadas.kutova.repl.co/). Se quiser dar uma olhada no projeto (https://replit.com/@kutova/IntercalacoesBalanceadas) ou fazer algumas modificações a ele, sinta-se à vontade, mas apenas se lembre que esse projeto 
+é uma simulação em JavaScript e que não usa arquivos reais na sua execução.
+
+E assim concluímos o nosso estudo do algoritmo de intercalações balanceadas de M caminhos. É claro que há outros algoritmos de ordenação externa e também muito mais 
+o que podemos melhorar a ordenação nesse próprio algoritmo. No entanto, o que vimos é suficiente para os objetivos da nossa disciplina. 

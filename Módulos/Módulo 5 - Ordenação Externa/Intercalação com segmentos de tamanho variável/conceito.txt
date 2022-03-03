@@ -1,0 +1,21 @@
+O algoritmo de intercalação balanceada pode ser otimizado para observar se os blocos gerados na fase de distribuição estão ordenados entre si. Caso isso ocorra, os 
+blocos ordenados entre si podem ser considerados um segmento de tamanho maior.
+
+Quando geramos os blocos ordenados na fase de distribuição, pode ser que eles estejam ordenados entre si. Por exemplo, considere que os seguintes blocos foram gerados 
+na fase de distribuição:
+
+Arquivo_temporário_1: B1 B4 B7 B10 ...
+Arquivo_temporário_2: B2 B5 B8 B11 ...
+Arquivo_temporário_3: B3 B6 B9 B12 ...
+Nesse caso, se todas as chaves do bloco B4 forem maiores que as chaves do bloco B1, podemos considerar que há um único segmento maior contendo os registros de B1 e B4. 
+Nesse caso, a primeira intercalação deveria considerar a seguinte distribuição:
+
+Arquivo_temporário_1: (B1+B4) B7 B10 ...
+Arquivo_temporário_2: B2      B5 B8 B11 ...
+Arquivo_temporário_3: B3      B6 B9 B12 ...
+Ou seja, os registros do segmento (B1+B4) seriam intercalados com os registros dos blocos B2 e B3; os registros dos blocos B7, B5 e B6 seriam intercalados em seguida; 
+e assim em diante.
+
+Como nem todos os segmentos possuirão chaves ordenadas entre si, dizemos que eles têm tamanho variável.
+
+Finalmente, esperamos, ao trabalharmos com segmentos maiores, que o número de intercalações para a ordenação completa do arquivo seja menor.

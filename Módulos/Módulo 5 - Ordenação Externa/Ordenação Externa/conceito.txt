@@ -1,0 +1,26 @@
+Um algoritmo de ordenação externa tem como objetivo ordenar volumes gigantes de dados que não cabem na memória principal e que, portanto, estão em dispositivos externos 
+(como os discos rígidos) que são mais lentos.
+
+Quando usamos um arquivo sequencial ordenado, precisamos garantir que os dados estão todos na ordem necessária. Geralmente, esses arquivos são construídos sob demanda, 
+a partir de dados vindos de diversas fontes. Uma vez coletados, precisamos ordená-los para que possam ser usados eficientemente. Há outras situações em que os dados já 
+estão ordenados, mas, por causa de alguma inclusão ou alteração precisam ser ordenados novamente.
+
+Como geralmente o conjunto de dados em um arquivo é maior do que a capacidade da memória principal de armazená-los, os algoritmos tradicionais de ordenação, como o 
+quicksort ou mergesort, não são adequados. Os dados precisarão ser ordenados no próprio dispositivo. Além disso, os algoritmos tradicionais de ordenação requerem 
+muitas operações de leitura e escrita de registros e essas operações em disco são lentas
+
+A ordenação externa, isto é, a ordenação em memória secundária, deve garantir o menor número possível de leituras e escritas em disco. Deve também tirar proveito da 
+leitura e escrita de grandes blocos de dados. 
+
+Nesta unidade, veremos o algoritmo de Intercalação Balanceada (e suas otimizações) originalmente criado para ordenar registros armazenados em fitas. A principal 
+característica dessas fitas é o acesso sequencial. Esses algoritmos, no entanto, são empregados até hoje, mesmo que os discos permitam um acesso aleatório mais 
+rápido, porque ainda nos preocupamos com a redução do número de acessos e a leitura/escrita sequencial.
+
+Na próxima página, veremos um exemplo de uso do algoritmo de intercalação balanceada. Por enquanto, é importante que você se lembre que esse algoritmo tenta ordenar 
+um grande bloco de dados em memória principal usando algoritmos eficientes como o quicksort. O tamanho desse bloco geralmente é múltiplo do tamanho do bloco lido no 
+dispositivo externo. Quanto mais dados ordenarmos em memória principal, menor será o número de intercalações.
+
+Outra questão importante é que o algoritmo só trabalha com acessos sequenciais. Na época das fitas, essa era a única opção e cada arquivo temporário era, na verdade, 
+uma fita em uma leitora magnética de considerável porte e custo. Cada intercalação era feita de um conjunto de fitas (leitura) para outro conjunto de fitas (escrita). 
+Quando uma determinada intercalação terminada, a próxima invertia o papel das fitas. Aquelas que acabaram de receber dados passavam a ser usadas para a leitura, 
+enquanto as demais passavam a ser usadas para escrita (sobrescrevendo os dados que nelas estavam).
