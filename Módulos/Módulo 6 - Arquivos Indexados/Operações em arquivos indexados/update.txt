@@ -1,0 +1,24 @@
+update
+01: algoritmo update(novoObjeto)
+02:   pos ← buscar o ID no índice
+03:   se pos ≠ -1
+04:      então mover o ponteiro para pos
+05:            ler registro
+06:            se registro.lapide ≠ '*'
+07:               então extrair objeto do registro  // para algum teste do objeto
+08:                     criar novoRegistro para novoObjeto
+09:                     se novoRegistro.tamanho ⩽ registro.tamanho
+10:                        então mover para pos
+11:                              escrever novoRegistro mantendo ind.tam.
+12:                        senão mover para pos
+13:                              escrever lápide como excluído
+14:                              mover para fim do arquivo
+15:                              pos ← posição do ponteiro
+16:                              escrever novoRegistro
+17:                              atualizar o endereço para o ID no índice
+18:                              retornar verdadeiro e terminar
+19:                     fim-se
+20:            fim-se
+21:   fim-se
+22:   retornar falso
+23: fim-algoritmo

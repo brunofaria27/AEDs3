@@ -1,0 +1,13 @@
+create
+01: algoritmo create(objeto)
+02:   mover o ponteiro para início do arquivo (cabeçalho)
+03:   ler últimoID
+04:   objeto.ID ← últimoID + 1
+05:   mover o ponteiro para início do arquivo
+06:   escrever objeto.ID
+07:   criar registro para o objeto
+08:   mover para o fim do arquivo
+09:   pos ← posição do ponteiro
+10:   escrever registro
+11:   inserir o par (objeto.ID, pos) no índice
+12: fim-algoritmo

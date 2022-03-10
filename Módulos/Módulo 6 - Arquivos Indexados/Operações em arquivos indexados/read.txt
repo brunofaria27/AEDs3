@@ -1,0 +1,13 @@
+read (de uma única entidade)
+01: algoritmo read(ID)
+02:   pos ← buscar o ID no índice
+03:   se pos ≠ -1
+04:     então mover o ponteiro para pos
+05:           ler registro
+06:           se registro.lapide ≠ '*'
+07:              então extrair objeto do registro
+08:                    retornar objeto e terminar
+09:           fim-se
+10:   fim-se
+11:   retornar objeto vazio // null
+12: fim-algoritmo

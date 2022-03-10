@@ -1,0 +1,13 @@
+Um relacionamento é uma associação entre duas entidades em um banco de dados.
+
+Nos projetos da nossa disciplina, usaremos um arquivo diferente para cada entidade. Assim, em um sistema acadêmico, poderíamos ter um arquivo para os dados de alunos, outro arquivo para os 
+dados das disciplinas, outro arquivo para as matrículas e por aí vai. No entanto, precisamos manter uma relação clara entre essas entidades, sem que tenhamos que duplicar dados. Por exemplo, 
+uma matrícula vincula um aluno a uma disciplina. Assim, deve conter alguma forma de identificar a que aluno e a que disciplina pertence. Isso é feito por meio de atributos extras na entidade 
+matrícula chamados de chaves estrangeiras.
+
+Como o vídeo explicou, existem três tipos de relacionamentos entre as entidades:
+
+- Um para um (1:1) - Liga uma entidade de um tipo a uma outra entidade de outro tipo (exemplo: pessoa 1:1 habitação).
+- Um para muitos (1:N) - Uma entidade de um tipo está ligada a várias outras entidades de outro tipo (exemplo: categoria 1:N produto).
+- Muitos para muitos (N:N) - Várias entidades de um tipo estão ligadas a várias entidades de outro tipo (exemplo: ator N:N filme) e, geralmente, sSão relacionamentos que geralmente dependem 
+de uma entidade intermediária.

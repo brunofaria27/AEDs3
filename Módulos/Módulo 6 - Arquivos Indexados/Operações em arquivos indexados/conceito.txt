@@ -1,0 +1,10 @@
+As quatro operações realizadas em arquivos indexados são a criação (create), a leitura (read), a atualização (update) e a exclusão (delete) de entidades, cujas iniciais formam o 
+acrônimo CRUD. Essas operações devem ser realizadas tanto no arquivo de dados quanto no índice.
+
+As operações realizadas em arquivos indexados são as mesmas realizadas nos arquivos sequenciais. A principal diferença aqui, porém, é que as buscas por quaisquer entidades não 
+serão feitas sequencialmente no arquivo dados, mas serão feitas em um dos índices. No entanto, para que isso funcione corretamente, os índices devem sempre estar atualizados, 
+isto é, todas as operações realizadas no arquivo de dados também devem ser feitas nos diversos índices.
+
+Você conseguiu perceber como as operações ficaram muito mais simples com o uso dos índices? Essa é uma das grandes vantagens dos arquivos indexados sobre os arquivos sequenciais. 
+As operações são mais simples e mais rápidas. No entanto, precisamos nos lembrar sempre de mantermos os índices atualizados, isto é, toda vez que fizermos uma inclusão, alteração 
+ou exclusão de entidades, precisamos fazê-la no arquivos de dados e também em cada índice.

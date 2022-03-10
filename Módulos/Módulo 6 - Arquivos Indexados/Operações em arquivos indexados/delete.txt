@@ -1,0 +1,16 @@
+delete
+01: algoritmo delete(ID)
+02:   pos ← buscar o ID no índice
+03:   se pos ≠ -1
+04:      então mover o ponteiro para pos
+05:            ler registro
+06:            se registro.lapide ≠ '*'
+07:               então extrair objeto do registro // para algum teste do objeto
+08:                     mover para pos
+09:                     escrever lápide como excluído
+10:                     remover o ID do índice
+11:                     retornar verdadeiro e terminar
+12:            fim-se
+13:   fim-se
+14:   retornar falso
+15: fim-algoritmo

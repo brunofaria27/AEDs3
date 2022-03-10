@@ -1,0 +1,18 @@
+Arquivos indexados são arquivos em que os registros são acessados de forma aleatória. Para que a busca seja eficiente, esses arquivos contam com estruturas de dados de apoio chamadas índices.
+
+Nas aplicações do dia a dia, em que fazemos muitas buscas aleatórias (por entidades específicas), os arquivos indexados são mais adequados que os arquivos sequenciais. Arquivos indexados são 
+aqueles arquivos que contam com o apoio de alguma estrutura adicional para apoiar as buscas, independentemente dos dados estarem ordenados ou não. Essa estrutura é chamada de índice (e também 
+é um arquivo) e geralmente é na forma de uma tabela hash ou de uma árvore (veremos algumas estruturas de dados usadas como índices na próxima unidade).
+
+Assim, a busca não é realizada diretamente no arquivo de dados, mas no tal índice, que retornará quais registros atendem ao critério de busca e onde eles estão localizadas no arquivo de dados. 
+Em seguida, cada um desses registros pode ser recuperado diretamente por meio do seu endereço.
+
+Um arquivo pode ter vários índices, cada um baseado em um atributo (ou conjunto de atributos) diferente. Em um sistema de gerenciamento de clientes, é possível termos, por exemplo, um índice 
+baseado no ID de cliente, outro baseado no nome do cliente e ainda um terceiro baseado no e-mail do cliente.
+
+Como você viu no vídeo, os índices são apenas estruturas que armazenam uma chave de uma entidade e o seu endereço. Assim, quando precisamos localizar uma entidade, fazemos uma consulta ao 
+índice por meio dessa chave e ele nos retornará o endereço do registro dessa entidade no arquivo de dados. Essa é, pelo menos, o tipo mais simples de índice. Os índices podem ser:
+
+- Primários ou secundários;
+- Diretos ou indiretos;
+- Densos ou esparsos.
