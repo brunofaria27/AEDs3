@@ -1,0 +1,10 @@
+As árvores B são também armazenadas em arquivos. Cada página pode ser considerada um registro desse arquivo. 
+As árvores B geralmente são usadas em sistemas de bancos de dados, em que o volume de informações em sempre muito grande. Assim, as árvores B também são armazenadas em arquivos e 
+precisamos conhecer como é a estrutura (ou registro) de cada página. 
+
+Uma página de uma árvore B, portanto, nada mais é do que um registro e precisa contar com as mesmas operações (CRUD) que já vimos em arquivos sequenciais e indexados.  Dessa vez, 
+porém, é importante considerar que as árvores, para serem eficientes, adotam páginas de tamanho fixo.
+
+E aqui cabe uma informação interessante: se as páginas têm tamanho fixo, esse tamanho deve ser de 4 KB (tamanho do setor do disco rígido) ou múltiplo disso para que a árvore seja 
+eficiente. E para que as páginas não fiquem quebradas entre dois setores, seria interessante que o cabeçalho do arquivo também tivesse 4 KB (ocupando um setor inteiro). Nesse cabeçalho, 
+você poderia também guardar informações sobre as páginas excluídas (espaços disponíveis) e muitas outros metadados (data da criação, data da última atualização, última página modificada, etc.).

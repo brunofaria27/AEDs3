@@ -1,0 +1,22 @@
+Imagine, por exemplo, que você tenha um arquivo com 50 milhões de entidades (compras, ingressos, matrículas, ligações, etc.) e que você deseja encontrar uma entidade específica no 
+meio desse conjunto. Se o seu sistema tiver que fazer um acesso específico na memória secundária para testar cada entidade nela armazenada, ele terá um desempenho muito baixo. Mesmo 
+que usássemos uma árvore binária nessa busca, cada teste de um nó dessa árvore (contendo apenas uma chave) implicaria em um novo acesso à memória secundária. 
+
+Precisamos, portanto, encontrar alguma forma de reduzir o número de acessos ao arquivo. A solução que veremos agora é a de carregar um grande conjunto de entidades em um único acesso, 
+que chamaremos de página. Em seguida, podemos fazer a busca da entidade procurada nessa página que já estará na memória principal. Se a encontrarmos, então o problema está resolvido. 
+Caso contrário, decidiremos qual será o próximo conjunto a ser testado e faremos a carga de todo esse novo conjunto. 
+
+Mesmo assim, para que essa leitura de uma página seja eficiente, as entidades precisam estar organizadas sequencialmente no arquivo. Uma página, portanto, deve ser um conjunto sequencial 
+de registros do arquivo.
+
+Como fazer isso? Vamos lembrar da árvore binária. A cada comparação, escolhemos um ramo da árvore (esquerdo ou direito) e, assim, reduzimos o espaço de busca pela metade, certo? Mas, se 
+o nó da árvore tivesse 2 chaves e não apenas 1, poderíamos reduzir o espaço de busca para apenas um terço. Por exemplo, se tivéssemos as chaves 20 e 30 nesse nó, desceríamos para o filho 
+esquerdo caso a chave da entidade que buscamos seja menor que 20, desceríamos para o filho do meio caso essa chave estivesse entre 20 e 30 e desceríamos para o filho direito caso essa chave 
+fosse superior a 30. Para isso, estamos considerando, obviamente, que um nó com duas chaves pode ter até 3 filhos (e que esses filhos existem nesse exemplo).
+
+Seguindo a mesma lógica, um nó que contivesse 9 chaves poderia ter até 10 filhos. Assim, a cada comparação, reduziríamos o espaço de busca a 1/10 do conjunto restante.
+
+E se tivéssemos 500 chaves no nó? Ou 10.000? A cada comparação, o espaço de busca se reduziria a apenas uma pequena fração do conjunto possível de chaves. É exatamente isso que a árvore B 
+se propõe a fazer.
+
+A única diferença entre árvores B e árvores n-árias é que as árvores B possuem algumas regras a mais, para aumentar a sua eficiência, como veremos já na próxima página.

@@ -1,0 +1,12 @@
+Uma árvore B é uma estrutura de dados balanceada em que cada nó comporta várias chaves. As árvores B são estruturas planejadas para o acesso de dados em blocos.
+Uma árvore B é uma árvore de busca (como a árvore binária) em que cada nó comporta diversas chaves. Assim, quando acessamos um nó qualquer, podemos fazer o teste 
+de várias chaves de uma só vez. No entanto, uma árvore B não é uma árvore n-ária qualquer.
+
+O vídeo apresentou dois conceitos importantes:
+- A ordem da árvore diz qual é o número máximo de filhos que cada página pode ter.
+- Uma página nada mais é do que o nó da árvore B.
+
+E, agora, podemos lembrar das três regras da árvore B:
+- Cada página (exceto a raiz) deve ter pelo menos 50% de ocupação;
+- O número de filhos de cada página (exceto as folhas) deve ser igual ao seu número de chaves mais um;
+- Todas as folhas estão no mesmo nível (a árvore cresce para cima).

@@ -1,0 +1,21 @@
+O crescimento de uma árvore B, provocado pela inserção de uma nova chave, é para cima, de tal forma que todas as folhas estejam sempre no mesmo nível. 
+
+Uma das características mais diferentes da árvore B para as árvores n-árias tradicionais é que o seu crescimento é para cima.  Assim, é feito por meio da divisão de uma folha com a 
+promoção de uma chave (que será usada para distinguir os caminhos para essas folhas). Isso garante que a árvore B esteja sempre balanceada. 
+
+Existem diferentes interpretações de como podemos fazer a inserção de chaves em uma árvore B. Nós seguiremos sempre estes passos:
+
+1. Localize a folha em que a chave deve ser inserida;
+2. Se a chave couber na folha, inseri a chave e termine;
+3. Se não couber,
+    1. Crie uma nova folha;
+    2. Mova a metade superior das chaves para essa nova folha;
+    3. Se a chave a ser inserida for menor que a primeira chave da segunda (nova) folha,
+        1. Insira a nova chave na folha antiga (da esquerda);
+        2. Promova a maior chave dessa folha antiga, com o ponteiro direito para a nova folha;
+    4. Senão,
+        1. Insira a nova chave na nova folha (da direita);
+        2. Promova a menor chave dessa nova folha, com o ponteiro direito para a nova folha;
+4.Se a chave promovida não couber na página pai, repita o algoritmo a partir do passo 2 acima.
+
+Eventualmente, a raiz atual será dividida e uma chave precisará ser promovida criando uma nova raiz.

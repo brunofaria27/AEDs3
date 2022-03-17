@@ -1,0 +1,30 @@
+A remoção em um árvore B deve sempre ser realizada em uma folha e pode provocar a fusão de folhas e páginas. Essa fusão, ao ser propagada até a raiz, pode resultar na redução da altura da árvore. 
+
+A remoção em uma árvore B é feita da forma oposta à inserção. Você deve, em primeiro lugar, remover a chave da folha e, em seguida, fazer as fusões de folhas (e outras páginas) necessárias. 
+Se a chave a ser excluída não estiver em uma folha, então você deve substituí-la por alguma chave de folha e tratar o processo como se fosse uma exclusão em folha.
+
+Como o vídeo apresentou, há vários cenários possíveis durante uma exclusão. Vamos tratar de todos eles nessa seguinte sequência de passos:
+
+ETAPA 1 - Remoção da chave em uma folha
+1. Localize a chave a ser removida.
+2. Se ela estiver em uma folha,
+    1. Então remova a chave.
+    2. Senão remova a chave e coloque em seu lugar a sua chave antecessora (descendente de maior valor da sub-árvore esquerda, que está em uma folha). Trate a exclusão como se fosse dessa 
+       chave antecessora em uma folha.
+
+ETAPA 2 - Cessão de chave de alguma folha adjacente
+3. Se a folha tiver ficado com menos de 50% de ocupação,
+    1. Então veja se a folha adjacente direita (se existente) pode ceder uma chave.
+        1. Se puder, faça a rotação.
+    2. Se não puder, veja se a folha adjacente esquerda (se existente) pode ceder uma chave.
+        1. Se puder, faça a rotação.
+
+ETAPA 3 - Fusão
+4. Se a folha ainda estiver com menos de 50% de ocupação e nenhuma folha adjacente puder ceder uma chave,
+    1. Se existir uma folha adjacente direita, faça a fusão entre as folhas.
+    2. Se não existir, faça a fusão com a folha adjacente esquerda.
+5. Na fusão, a chave que divide as duas folhas deve ser demovida (descer para a folha resultante da fusão).
+
+ETAPA 4 - Propagação
+6. Se, após a fusão, a página pai ficar com menos de 50 de ocupação, voltar à ETAPA 2 considerando essa página.
+7. As fusões podem ser propagadas até a raiz se necessário. Se a raiz tiver só dois filhos que precisarem ser fundidos, então a árvore terá sua altura reduzida.

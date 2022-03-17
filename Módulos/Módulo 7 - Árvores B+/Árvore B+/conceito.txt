@@ -1,0 +1,12 @@
+A árvore B+ é uma estrutura que combina a eficiência da busca logarítmica e a eficiência da leitura sequencial. A leitura sequencial é permitida por meio de ponteiros que apontam 
+de uma folha para a outra.
+
+A árvore B tradicional, que vimos até agora, é adequada para situações em que fazemos apenas buscas aleatórias (por alguma entidade específica). Quando precisamos recuperar várias 
+entidades, precisamos de uma estrutura que seja eficiente nas buscas aleatórias, mas que também ofereça a possibilidade de leituras sequenciais.
+
+Assim, para que a árvore B+ permita leituras sequenciais, cada folha precisa ter um ponteiro para a próxima folha. Além disso, todas as chaves válidas devem estar em folhas. 
+Ao oferecer buscas aleatórios e leituras sequenciais eficientes, a árvore B+ acaba sendo uma das estruturas mais usadas nos sistemas de bancos de dados.
+Mas aqui cabe apenas uma ressalva: há diferentes interpretações sobre como tratar a exclusão de chaves nas páginas superiores (lembrando que as chaves importantes estão apenas nas folhas). 
+Alguns autores entendem que ao removermos uma chave de uma folha, devemos remover suas cópias das páginas superiores também. Outros autores, entendem que essa remoção é desnecessária, porque 
+as chaves nas páginas superiores servem apenas para identificar caminhos às folhas e já não são consideradas chaves válidas mesmo (então podem ficar lá sem problemas). Nós seguiremos com essa 
+última interpretação.
