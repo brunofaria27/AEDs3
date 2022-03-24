@@ -1,0 +1,14 @@
+Uma colisão em uma tabela hash ocorre quando a função hash calcula o mesmo endereço para duas chaves diferentes. Nesse caso, algum cálculo alternativo deve ser usado para 
+determinar o novo endereço das chaves colididas.
+
+Em cada endereço ou posição da tabela, apenas uma chave pode ser armazenada. No entanto, a função hash pode acabar calculando o mesmo endereço para duas chaves diferentes. 
+Isso é chamado de colisão. E, como cada endereço comporta apenas uma chave, as demais chaves indicadas para esse endereço devem ser armazenadas em outro lugar.
+Quando esse outro lugar fica dentro da própria tabela (em algum endereço vazio) e é calculado matematicamente, chamamos o processo de endereçamento aberto, como explica este vídeo.
+
+OBS: Quando eu gravei estes slides, fiz uma certa confusão. As formas apresentadas aqui são chamadas de endereçamento aberto (e não de encadeamento interno, que veremos no próximo vídeo).
+
+Reforçando, as soluções de tratamento de colisão que usam os endereços livres da tabela hash por meio de novos cálculos matemáticos são chamadas de técnicas de endereçamento aberto. E as 
+técnicas que o vídeo apresentou foram sondagem linear, sondagem quadrática e duplo hash.
+
+O vídeo também mostrou o uso de uma tabela hash como índice. Nesses exemplos, porém, a tabela hash era de tamanho fixo e isso só funcionaria com arquivos também de tamanho fixo, isto é, 
+em que o número de entidades não crescerá com o tempo.

@@ -1,0 +1,18 @@
+O tratamento de colisões por encadeamento usa uma área extra para armazenar as chaves (e valores) que deveriam ser armazenados em endereços já ocupados. Se essa área extra fizer 
+parte da própria tabela, então a solução é chamada de encadeamento interno. Se ela for externa, como uma outra estrutura de dados, então a solução é chamada de encadeamento externo.
+
+As técnicas de endereçamento aberto usam endereços livres da própria tabela para armazenar as chaves que colidiram. Essas técnicas, porém, não permitem o aumento do espaço de endereçamento. 
+Assim, são mais adequadas para quando o número de chaves a serem inseridas na tabela é previsível (e fixo).
+Mas quando as chaves aumentam continuamente, precisamos de espaço extra. Esse espaço pode ser uma área extra da própria tabela  - que fica além do espaço endereçável) ou pode ser uma área 
+externa. Essas duas formas são explicadas no vídeo abaixo.
+
+OBS: Novamente, há um erro terminológico no vídeo. Nele, são apresentadas duas formas (usando dois slides). O nome correto da primeira forma, em que há uma área extra no fim do arquivo, é 
+encadeamento interno. E o nome correto da segunda forma, em que usamos uma outra estrutura de de dados, é encadeamento externo.
+
+Nos exemplos do vídeo, você também viu o uso da tabela hash como uma forma de índice. Essas tabelas, portanto, deveriam ser armazenadas em arquivos. 
+
+No caso do encadeamento interno, o arquivo deveria ser criado com todos os endereços iniciais (mesmo que vazios). A parte extra, para as chaves colididas, pode ser criada aos poucos, com 
+cada nova entrada sendo adicionada ao fim do arquivo.
+
+Já no encadeamento externo, precisaremos de dois arquivos. O primeiro será usado para as cabeças das listas encadeadas e também deve ser criado completamente com espaços vazios (ponteiro = -1). 
+O segundo arquivo pode ser criado aos poucos, na medida em que as chaves sejam inseridas. Mas é importante lembrar que o índice será composto por esses dois arquivos (e não apenas um deles).

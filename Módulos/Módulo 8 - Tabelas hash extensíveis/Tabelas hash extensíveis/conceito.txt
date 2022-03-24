@@ -1,0 +1,20 @@
+As tabelas hash (ou tabelas de dispersão) são estruturas de dados em que os dados são armazenados em endereços determinados por uma função matemática, conhecida como função hash 
+(ou função de dispersão).
+
+Essa função hash recebe os dados que serão armazenados (um objeto ou uma entidade) e, a partir do processamento matemático desses dados, determina em que endereço esse objeto ou 
+entidade será armazenado. Portanto, uma função hash normalmente tem a seguinte forma:
+
+A = h(K),
+
+em que A é o endereço em que o objeto será armazenado na tabela e K é o atributo (ou conjunto de atributos) que será usado como chave.
+
+Uma boa função hash deve ter uma distribuição aleatória, ou seja, deve evitar a concentração de objetos em torno de um ou mais endereços. Porém, como você já sabe, é impossível se 
+evitar que as colisões ocorram, isto é, que a função hash retorne o mesmo endereço para dois objetos diferentes. Quando isso acontece, precisamos adotar uma solução para o tratamento 
+dessas colisões.
+
+As tabelas hash nos interessam nesta disciplina, porque elas podem ser usadas como índices de arquivos indexados. No entanto, para que sejam índices eficientes, precisamos fazer alguns 
+ajustes nelas. O primeiro ajuste é trabalharmos com blocos, de tal forma que o acesso à memória secundária seja eficiente. Se nós fôssemos acessar cada elemento da tabela individualmente, 
+o processo todo ficaria muito lento. E o segundo ajuste é permitir que a tabela cresça indefinidamente. Nós não poderemos limitar a quantidade de entidades que serão inseridas no arquivo 
+de dados e, assim, também não podemos limitar o tamanho do índice.
+
+Mas não se preocupe, veremos isso tudo detalhadamente nas páginas desta unidade. Então vamos começar? Na próxima página, faremos uma revisão das tabelas hash.

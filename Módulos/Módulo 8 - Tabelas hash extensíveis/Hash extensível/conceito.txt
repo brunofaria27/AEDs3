@@ -1,0 +1,14 @@
+A tabela hash extensível é uma tabela hash, geralmente em memória secundária, que tem o número de endereços aumentado de acordo com a necessidade e sem implicar no reposicionamento de 
+todas as chaves.
+
+Quando alteramos o número de endereços uma tabela hash tradicional (estática), precisamos recalcular a posição de todas as chaves. No entanto, à medida que o número de chaves cresce, 
+esse processo vai ficando cada vez mais lento. Seria melhor, assim, que tivéssemos uma alternativa em que um número mínimo de chaves precisasse ser reposicionado quando a tabela crescesse.
+E é exatamente isso que a tabela hash extensível se propõe a fazer. Ela é uma tabela que trabalha com cestos e, quando um cesto estoura a sua capacidade, a tabela cresce e apenas as chaves 
+daquele cesto estourado precisam ser reposicionadas.
+
+Da mesma forma como vimos na página anterior (sobre cestos), para que essa tabela funcione direitinho, os cestos devem ser de tamanho fixo. Você pode até usar entradas (chaves e valores) 
+de tamanho variável, mas isso torna a tabela muito mais difícil de ser gerenciada e, portanto, recomenda-se usar chaves e valores de tamanho fixo também.
+Note também que a tabela hash extensível não usa encadeamento entre os cestos. Na verdade, os ponteiros aparecem apenas no diretório, que cresce de acordo com a necessidade.
+
+Esta é, definitivamente, a melhor estrutura para ser usada como índices diretos em arquivos indexados.
+

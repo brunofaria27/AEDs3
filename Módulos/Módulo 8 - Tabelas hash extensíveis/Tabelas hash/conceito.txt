@@ -1,0 +1,13 @@
+A tabela hash é uma estrutura de dados que associa chaves a valores. Cada par de chave e seu valor deve ser armazenado em um endereço (ou linha) específico dessa tabela. 
+Esse endereço é determinado matematicamente por meio de uma função hash.
+
+Na nossa disciplina, nós nos concentraremos no uso da tabela hash como uma estrutura de dados em memória secundária. Esse uso é chamado de hashing externo e uma das suas 
+aplicações é o uso como índice em arquivos indexados.
+
+Nesse caso, cada registro será representado na tabela hash, isto é, no índice, por meio de uma chave e de um endereço. A chave geralmente será um atributo da entidade 
+(por exemplo, o ID dessa entidade) e o endereço será o endereço propriamente dito do registro no arquivo de dados.
+
+Assim, durante uma busca, uma consulta ao índice usando a chave escolhida retornará o endereço e, com este endereço, poderemos localizar o registro no arquivo de dados.
+
+A vantagem do uso de tabelas hash como índice é a velocidade com que retornam o endereço do registro. No entanto, os registros não são armazenados sequencialmente e, portanto, 
+não é uma estrutura recomendada para acessos sequenciais.

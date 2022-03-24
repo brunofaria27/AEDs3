@@ -1,0 +1,12 @@
+As tabelas hash em memória secundária devem ser otimizadas para trazerem um conjunto de chaves (e valores) a cada acesso. Assim, cada endereço pode ser usado para armazenar não apenas uma, 
+mas várias chaves. Em outras palavras, cada endereço contém um bloco de chaves que, aqui, chamaremos de cesto.
+
+As tabelas hash em disco também precisam levar em consideração o acesso sequencial nos arquivos. Por exemplo, se um par de chave e valor usa apenas 12 bytes (um int e um long) e sabendo que 
+a menor unidade de leitura/escrita em disco é o setor (de 4 KB), eu posso recuperar centenas de pares de chave e valor a cada acesso, pois eles serão lidos ou escritos de qualquer forma. 
+Assim, faz mais sentido eu trabalhar com blocos de 4KB do que trabalhar com acessos individuais. E cada bloco desse pode ficar em um dos tais endereços da tabela hash. No contexto das tabelas 
+hash em disco, nós chamaremos esses blocos de cestos (na árvore B, eles são chamados de páginas).
+
+Como você viu no vídeo, o endereçamento dos cestos é relativo, isto é, o endereço 5 retornado pela função hash não aponta para o byte 5 de um arquivo, mas para o sexto cesto. E a determinação 
+do endereço real desse cesto depende de os cestos serem de tamanho fixo. O cálculo seria algo como 5 x tamanho_cesto.
+Independentemente disso, para que tenhamos o mesmo número de elementos em cada cesto, já seria importante que eles fosse de tamanho fixo. Se, portanto, você precisar usar uma string 
+(que é naturalmente de tamanho variável) como chave, deve considerar completá-la com espaços em branco, até que tenha um tamanho fixo.
