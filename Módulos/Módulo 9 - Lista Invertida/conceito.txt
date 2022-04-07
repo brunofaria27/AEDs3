@@ -1,0 +1,25 @@
+Uma lista invertida é uma lista de atributos de uma entidade que é usada para localização da própria entidade. Ela recebe esse nome, porque, ao invés de usarmos o ID para recuperarmos
+os dados da entidade, usaremos um atributo (ou parte dele) para recuperarmos o ID, invertendo a lógica da busca. É claro que, em seguida, usaremos o ID para recuperar os dados completos
+da entidade.
+
+Uma lista invertida é uma lista de termos (palavras, números, dados, ...) em que cada um desses termos possui uma lista secundária de entidades em que o termo aparece. Os termos podem ser 
+atributos completos ou partes deles.
+
+Por exemplo, no título do livro "Sistemas de Bancos de Dados" aparecem os termos "bancos", "dados", "de" e  "sistemas". Já no livro "Estruturas de Dados" aparecem os termos "dados", "de" 
+e "estruturas". Se atribuirmos ao primeiro livro o ID 1 e, ao segundo livro, o ID 2, poderíamos montar a seguinte lista invertida, em que cada termo contém uma lista dos livros em que esse 
+termo aparece:
+
+Termo      | Livros
+---------------------
+bancos     | 1
+dados      | 1, 2
+de         | 1, 2
+estruturas | 2
+sistemas   | 1
+
+Por meio dessa imagem, você pode ver por que essas listas são chamadas de listas invertidas: usamos os dados para obtermos o ID, ao invés de usarmos o ID para obtermos os dados.
+
+As listas invertidas podem ser usadas como índices para podermos fazer sofisticadas buscas na base de dados. Nesse caso, passam a ser chamadas de índices invertidos.
+
+Esse tipo de índice geralmente é usado para permitir buscas que combinem diferentes atributos, mas, para isso, esses diferentes atributos devem aparecer nas listas de termos do índice 
+(ou de diferentes índices invertidos).
