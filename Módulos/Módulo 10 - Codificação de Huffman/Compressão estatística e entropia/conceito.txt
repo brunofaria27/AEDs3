@@ -1,0 +1,49 @@
+A compressão estatística é uma compressão baseada na probabilidade de cada símbolo. Quando mais provável for a ocorrência de um símbolo em uma informação, então menos bits ela deve usar. 
+É possível se estimar quantos bits uma informação precisa para ser representada (de forma compactada) por meio da sua entropia.
+
+Se existem vários sistemas de codificação usados na compressão de dados, como saber qual é a melhor? Para isso, a Teoria da Informação nos dá um conceito chamado de entropia. Basicamente, 
+a entropia nos diz é quantos bits são necessários, em média, para representarmos os símbolos de uma mensagem. Em outras palavras, ela nos diz qual é o resultado esperado de um bom sistema 
+de codificação.
+
+Vamos tentar entender esse conceitos de entropia por meio de um exemplo. Suponha a seguinte mensagem: "ABCD". Temos nessa mensagem, 4 letras, cada uma com a probabilidade de 25%. Assim, 
+todas têm a mesma chance de aparecer e, portanto, cada uma acabará usando 2 bits para ser representada: A=00, B=01, C=10 e D=11. A entropia, que indica o tamanho médio de cada símbolo, é, 
+aqui, de 2 bits.
+
+Mas, se tivermos a seguinte mensagem: "AAAABBCD", então as frequências são: A=1/2, B=1/4, C=1/8 e D=1/8. Em termos de probabilidade, temos os seguintes valores: 
+A=50%, B=25%, C=12,5% e D=12,5%. E como calcular a entropia dessa mensagem?
+
+Aí a coisa aperta um pouco. Vamos começar vendo qual é a estimativa individual de cada símbolo. Para isso, usamos a seguinte fórmula:
+
+Si = -log2(Pi)
+
+Nesse caso, a estimativa de bits Si para cada símbolo i  depende da probabilidade Pi desse símbolo e fica assim:
+
+Sa = -log2(Pa) = -log2(0.5) = 1
+Sb = -log2(Pb) = -log2(0.25) = 2
+Sc = -log2(Pc) = -log2(0.125) = 3
+Sd = -log2(Pd) = -log2(0.125) = 3
+
+Agora, podemos ver quantos bits são necessários para toda a mensagem, sabendo que são 4 letras A, 2 letras B, 1 letra C e 1 letra D:
+
+4 * 1 + 2 * 2 + 1 * 3 = 14
+
+Portanto, precisamos de 14 bits para toda a mensagem. Sabendo que ela contém 8 caracteres, o tamanho médio de cada símbolo (letra) é:
+
+14/8 = 1,75
+
+Assim, a entropia da mensagem é 1,75 bits, isto é, em média, os símbolos gastarão 1,75 bits.
+
+Nós poderíamos ter calculado a entropia diretamente sem precisarmos saber o tamanho da mensagem. Para isso, basta conhecermos a probabilidade de cada um deles. Aí, a fórmula ficaria assim:
+
+S = - SOMA(i = 1 -> n)(Pi * log2(Pi))
+
+Então, basta multiplicar o tamanho de cada símbolo pela sua própria probabilidade. Desenvolvendo esse cálculo, ficamos assim:
+
+0.5 * 1 + 0.25 * 2 + 0.125 * 3 + 0.125 * 3 = 1.75
+
+Hum... deu na mesma, não é? Ainda bem, porque, caso contrário, seria algum erro meu no cálculo. Bem, a vantagem de calcularmos diretamente é que não precisamos analisar toda a mensagem. 
+Basta sabermos a probabilidade de cada símbolo e daí calculamos a entropia. Depois, para sabermos quanto bits precisamos para uma mensagem, é só multiplicar a entropia pelo tamanho total 
+da mensagem.
+
+Isso tudo está demonstrado no vídeo abaixo. Mas eu queria fazer um alerta. No vídeo, falei de entropia de símbolo e entropia total. Na verdade, esses conceitos não existem. O termo entropia 
+se refere apenas ao tamanho médio dos símbolos.

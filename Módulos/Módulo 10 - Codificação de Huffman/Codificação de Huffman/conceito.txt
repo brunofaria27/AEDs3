@@ -1,0 +1,18 @@
+A codificação de Huffman é um método de compressão baseado na frequência de cada símbolo. Esse método usa uma árvore binária para determinar o código de cada símbolo da informação.
+
+A codificação de Huffman é uma das mais principais formas de compressão de dados da era moderna (ela é de 1952). A compressão é feita por meio de uma análise da frequência de cada 
+símbolo em um determinado conjunto de dados. Aos símbolos mais frequentes atribuímos alguns poucos bits e aos símbolos mais raros atribuímos um conjunto maior de bits (geralmente 
+maior que o conjunto de bits original para representar esse símbolo). A expectativa é que os símbolos mais frequentes ocorram tantas vezes que se tenha um ganho no conjunto total.
+
+Mas já sabíamos disso. O segredo aqui é a forma que David Huffman bolou para se definir os códigos de cada símbolo. A ideia dele foi criar uma árvore binária em que cada símbolo é 
+uma folha. O código do símbolo é o caminho da raiz até esse símbolo. Veja esse exemplo, com um árvore e a tabela de códigos de cada símbolo.
+
+Essa árvore foi criada com base na frequência de cada símbolo. Na mensagem original, de 72 caracteres, a frequência de cada símbolo era: U=12, V=18, W=7, X=15 e Y=18. Aí, a árvore 
+foi montada usando o processo elaborado pelo Huffman. 
+
+O código de cada símbolo é determinado pelo seu caminho da raiz até a folha. Para o W, por exemplo, pegamos a direita da raiz (1), descemos pela esquerda do nó 39 (0) e, em seguida, 
+pela esquerda do nó 19 (0). Assim, o caminho é: 100, que é também o código da letra W.
+
+Simples, não é? Bem, o vídeo mostra a coisa sob a perspectiva da implementação, isto é, usando uma pilha de árvores binárias. Na próxima página, veremos como aplicar esses códigos 
+gerados para cada símbolo em operações de compactação e descompactação das mensagens. Também veremos algumas ferramenta para criação da árvore e você vai poder experimentar isso 
+pessoalmente.

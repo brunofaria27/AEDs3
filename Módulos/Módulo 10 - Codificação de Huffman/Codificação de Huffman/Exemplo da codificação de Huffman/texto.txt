@@ -1,0 +1,4 @@
+E que tal você experimentar codificar suas próprias mensagens. Existem dois sites que oferecem ferramentas on-line para isso. São eles:
+
+https://cmps-people.ok.ubc.ca/ylucet/DS/Huffman.html -> Animação de David Galles (University of San Francisco)
+https://www.dcode.fr/huffman-tree-compression -> dCode

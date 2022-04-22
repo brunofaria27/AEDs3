@@ -1,0 +1,25 @@
+Compressão é um processo de codificação de dados que busca reduzir o número de bits necessários para se representar uma informação. A compressão de dados envolve dois processos: 
+em um deles os dados são comprimidos (codificados)  para terem seu tamanho reduzido; no segundo processo eles são descomprimidos (decodificados) para voltar ao formato original.
+
+A ideia da compressão de dados vem de uma área da computação que se chama Teoria da Informação. Nessa área, as pessoas estão preocupadas em quantificar uma informação para fins 
+de armazenamento ou comunicação. Em outras palavras, elas estão preocupadas em determinar quantos bits são necessários para representar uma informação qualquer (por exemplo, uma 
+mensagem, um arquivo, uma foto, etc.). Esse tipo de cálculo é bastante usado em comunicação, armazenamento, inteligência artificial e aprendizagem de máquina.
+
+Tudo começa com a probabilidade. De uma forma simplificada, podemos dizer que um símbolo mais provável (ou frequente) deve gastar menos bits que um símbolo menos provável (ou mais raro). 
+Por exemplo, suponhas as seguintes alternativas de codificação da mensagem "AAAAAAAAAABBBBBCCD" (são 10 letras A, 5 letras B, 2 letras C e 1 letra D, totalizando 18 letras):
+
+Se A = 00, B = 01, C = 10 e D = 11, então a mensagem completa gastará 18*2 = 36 bits.
+Se A = 0, B = 10, C = 110 e D = 111, então a mensagem completa gastará 10*1 + 5*2 + 2*3 + 1*3 = 29 bits.
+A segunda alternativa traz uma economia de aproximadamente 20% no uso dos bits. Em grandes massas de dados, 20% significa um ganho e tanto.
+
+É aí que a compressão de dados entra em cena. Ela tenta nos oferecer uma forma de codificação dos símbolos (que podem ser caracteres, dígitos, eventos, pixels, etc.) para gastarmos menos 
+bits no armazenamento ou na comunicação. E, geralmente, os resultados são surpreendentes.
+
+Para a gente avaliar essa eficácia da compressão, devemos observar a razão entre o tamanho dos dados comprimidos e o tamanho original e daí subtraímos 1. Este valor é conhecido como razão 
+da compressão dos dados. Basicamente é assim: se um arquivo gastava 800 bytes e, compactado, precisa de apenas 600 bytes, então a razão é dada por:
+
+1 - 600/800 = 0,25 = 25%
+
+Os métodos de compressão de dados são divididos em duas classes: com perdas e sem perdas. Em compressões com perdas, aceitamos alguma perda de precisão ou na qualidade dos dados em troca 
+de maior razão de compressão. Isto é aceitável em algumas aplicações tais como imagens, vídeos e áudios, contanto que a mensagem continue compreensível. Quando não for o caso, usamos a 
+compressão sem perdas em que há uma reprodução exata dos dados originais, quando eles são descomprimidos.
