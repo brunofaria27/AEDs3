@@ -1,0 +1,69 @@
+\documentclass[12pt]{article}
+\usepackage{sbc-template}
+\usepackage{graphicx,url}
+%\usepackage[brazil]{babel}   
+\usepackage[utf8]{inputenc}  
+
+\sloppy
+\title{Trabalho Artigo \\ Criptografia}
+\author{Bruno R. Faria\inst{1}, Laura I. S. S. Xavier\inst{2}, Guilherme D. C. Fagundes\inst{3}}
+\address{Ciências da Computação - Pontifícia Universidade Católica de Minas Gerais}
+\begin{document} 
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sobre}
+O artigo Criptografia foi desenvolvido por Pedro Quaresma (Departamento de Matemática, Universidade de Coimbra) e Elsa Lopes (Lic. Matemática, F.C.T.U.C.). O artigo foi publicado na página principal de matemática da Universidade de Coimbra em um projeto de divulgação científica.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Contextualização}
+O artigo trata do surgimento da criptografia e liga a sua criação como o mundo atual mostrando que as pessoas utilizam bastante a Internet para se comunicar atualmente e por ser um meio de comunicação muito exposto, a importância da confidencialidade da informação que deve ser transmitida.
+
+\subsection{Objetivo}
+Pode-se observar que o principal objetivo é mostrar a importância da criptografia atual abordando todo o contexto das décadas passadas e como pode auxiliar a vida cotidiana, de preferência na confidencialidade dos dados a serem transmitidos.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Desenvolvimento do artigo}
+\subsection{Introdução}
+A priori, o artigo trata da necesidade de proteger os canais de comunicação entre as pessoas de uma mesma comunidade e mostra exemplos para evidenciar que a criptografia existe desde os primordios da civilização. Um dos exemplos utilizados para exemplificar é sobre o Ciframento de César onde cada letra e <desalocada> três posições para a direita do alfabeto.
+
+Visto isso, o autor mostra a importância de uma boa criptografia nos dias atuais, pois o meio de comunicação que é utilizado é a internet e por ser muito vulnerável dados podem ser expostos e para evitar isso uma boa criptografia deve ser posta em prática.
+
+\section{Tipos de criptografia}
+Em segunda instância, pode-se observar que o artigo mostra alguns tipos de criptografia existentes e que podem ser utilizados para auxiliar na problemática da exposição dos dados. São eles Sistemas Criptográficos Simétricos, Assimétricos e Sistema RSA.
+\subsection{Sistemas Criptográficos Simétricos}
+Sistemas Criptográficos Simétricos, trata de um conceito de chave secreta, onde só existe uma chave de cifração, e em que os processos de cifração são simétricos. Algoritmos mais simples de quebrar.
+
+\subsection{Sistemas Criptográficos Assimétricos}
+Sistemas Criptográficos Assimétricos, trata de um conceito de chave pública, mas o processo de decifração usa uma chave diferente, dita chave privada. Algoritmos mais complexos de quebrar.
+
+\subsection{Algoritmo RSA}
+O sistema de criptografia RSA é um sistema assimétrico muito utilizado nos atualidade. Para criar um sistema de criptografia assimétrica deve-se possuir programas que façam as seguintes tarefas:
+
+% Lista de tarefas a serem realizadas por um programa de criptografia
+\begin{itemize}
+  \item Gerar chaves públicas e privada (secreta);
+  \item Cifrar as mensagens;
+  \item Decifrar as mensagens.
+\end{itemize}
+
+O processo de geração das chaves leva em consideração que elas devem ser um par de números inteiros, os quais vão constituir o âmago dos processos de cifração e decifração.
+
+\textbf{Algoritmo de cifração:} \[C = A_C_p(M) = M^e(mod*n)\]
+
+\textbf{Algoritmo de decifração:} \[M = A_C_s(C) = C^d(mod*n)\]
+
+Visto isso, a mensagem é primeiro convertida em um vetor de caracteres num vetor de naturais, de seguida cifrada,
+depois decifrada e finalmente convertida de novo num vector de caracteres.
+
+Para quebrar o o código RSA basta descobrir o  {\itshape d}, o qual pode ser obtido de  {\itshape e}, de  {\itshape p} e de  {\itshape q}. Onde o  {\itshape e} pertence à chave pública, o  {\itshape p} e o  {\itshape q} são fatores primos de  {\itshape n}, o qual é o outro elemento da chave pública. Ou seja, para quebrar um sistema deste tipo basta fatoriar  {\itshape n}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Relação com a materia de AEDs III}
+Durante as aulas de AEDs III será ensinado alguns metódos de criptografia utilizando metódos Simétricos e Assimétricos e o artigo trata exatamente desses metódos de criptografia e suas aplicações como exemplo.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusão}
+Pode-se concluir de acordo com o artigo que atualmente a criptografia é de extrema importância para o mundo atual. Por isso, metódos para dificultar a vida de pessoas mal intencionadas como hackers devem ser criados, visando sempre manter a confidencialidade dos dados que circulam pela internet.
+
+\end{document}
