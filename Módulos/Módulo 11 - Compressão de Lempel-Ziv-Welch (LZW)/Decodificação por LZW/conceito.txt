@@ -1,0 +1,14 @@
+A decodificação segue uma sequência de passos parecida com a da codificação, pois têm praticamente o mesmo objetivo: reconstruir o dicionário. Assim, a cada índice decodificado, o
+dicionário recebe mais uma cadeia de símbolos. Tudo funciona da seguinte forma:
+
+- Inicializar o dicionário (com símbolos básicos).
+- Decodificar o 1º índice, escrevê-lo na saída e armazená-lo em w.
+- Colocar w? no dicionário.
+- Repetir até o fim dos índices:
+    - Decodificar o primeiro símbolo s do próximo índice.
+    - Trocar o ? da última entrada no dicionário por s.
+    - Decodificar o resto do índice, escrevê-lo na saída e armazená-lo em w.
+    - Colocar w? no dicionário.
+
+Que tal experimentar codificar e decodificar suas próprias mensagens? Explore um pouquinho a compressão por LZW usando este site:
+https://www.dcode.fr/lzw-compression - dCode

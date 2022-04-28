@@ -1,0 +1,42 @@
+A compressão baseada na repetição de cadeias de símbolos usam uma estratégia diferente daquela da compressão baseada em frequência (ou probabilidade). Elas não buscam representações
+diferentes para cada símbolo, mas para toda uma cadeia (como uma string). Para isso, geralmente representam essa cadeia por meio de um (ou mais) números. Por isso, são conhecidas
+como técnicas baseadas em dicionário. Cada entrada do dicionário associa um número a uma cadeia de símbolos.
+
+As técnicas de compressão estatística, como a codificação de Huffman tentam encontrar a menor quantidade de bits para símbolos muito prováveis. Para isso, precisam analisar todo a
+mensagem (ou documento) a ser compactado para gerar o código binário de cada símbolo. Eventualmente, elas podem até gerar códigos binários baseados em amostras de dados e aplicar
+esses códigos a mensagens ou documentos novos (nesse caso, a compressão não será a melhor possível, mas será boa o suficiente).
+
+Porém, há várias outras técnicas de compressão e a que mais se destaca entre elas é a compressão que busca algum ganho na repetição de símbolos. Por exemplo, veja a imagem abaixo de
+tamanho 600x180 em que as cores variam pouco. Nessa imagem, as 45 linhas iniciais contém apenas 600 pixels da cor cinza claro. Como uma cor é representada por três bytes (RGB), essas
+linhas contém os seguintes bytes:  0xF6F6F6, 0xF6F6F6, 0xF6F6F6, 0xF6F6F6, ... 
+
+Nós podemos aplicar duas estratégias de compressão a essa imagem. A primeira é representarmos um conjunto de pixels por apenas uma indicação de quantidade. Dessa forma, ao invés de
+repetirmos 600 vezes a cor cinza claro, faríamos algo como:
+600; 0xF6F6F6
+
+Assim, cada sequência de pixels seria representada pelo par [quantidade; cor]. Eventualmente, sabendo que são 45 linhas iguais, poderíamos até mudar a representação para [27000; 0xF6F6F6]
+ou até um pouco mais, porque a 46ª linha também começa com pixels dessa cor.
+
+A segunda estratégia de compressão que podemos usar nessa imagem é reduzir o número de cores possíveis. Como já você deve saber, com três bytes (24 bits) podemos representar até  16.777.216
+valores diferentes. Então, um pixel de três bytes pode ter mais de 16,7 milhões de cores diferentes.
+
+No entanto, a imagem das árvores usa apenas 6 cores diferentes. Podemos associar cada uma dessas cores a um número, da seguintes forma: cinza claro = 0, verde claro = 1, verde médio = 2,
+laranja = 3, amarelo escuro = 4 e marrom = 5 (precisaremos de um dicionário para armazenarmos essas associações). Em seguida, ao invés de usarmos 24 bits para representar cada cor, podemos
+usar apenas 3 bits e, com esse esforço, economizaremos 87,5% do espaço de armazenamento inicialmente necessário. Somando as duas técnicas, o arquivo final terá menos de 1% do tamanho original.
+
+Enfim, essas são as ideias por trás dessa segunda categoria de formas de compactação. O representante mais simples da categoria é o RUN-LENGTH ENCODING (RLE), que tenta usar o contador de
+símbolos.
+
+Por exemplo, se tivermos a seguinte mensagem a compactar:
+AAAABCDDDDEEFFFFGHHHHIJJKKKKKLLLLLLLMNNN
+
+Poderíamos representá-la assim:
+4A1B1C4D2E4F1G4H1I2J5K7L1M3N
+
+Como você pode observar, se tivermos apenas 1 ou 2 caracteres em uma sequência, não ganhamos muita coisa. Pelo contrário, podemos até acabar aumentando o tamanho da mensagem se não houver
+muita repetição nela. Para resolvermos isso, podemos usar uma estratégia ligeiramente diferente que seria só codificar sequências quando tivermos pelo menos 3 símbolos repetidos nessa
+sequência e, para sabermos se houve uma codificação ou não, podemos usar algum byte especial (aqui vou usar o @). Então, a sequência compactada dessa nova forma seria:
+@4ABC@4DEE@4FG@4HIJJ@5K@7LM@3N
+
+Aqui, o resultado ficou ligeiramente maior, mas o exemplo que eu usei foi forçado, isto é, eu criei escrevi uma mensagem com muitas repetições intencionalmente. 
+Mas o RLE é só um exemplo de codificação desta categoria. Há uma codificação bem mais interessante que é o LZW, que atribui um número para cada sequência de símbolos.

@@ -1,0 +1,15 @@
+Para nós compactarmos uma mensagem usando LZW, seguiremos essa sequência de passos bem específica:
+
+- Inicializar o dicionário (com símbolos básicos) - nesse ponto, estamos falando de todos os símbolos que poderem aparecer na mensagem. Geralmente, evitamos adotar um conjunto muito
+  específico ou muito amplo e trabalhamos com os 256 valores possíveis para os bytes (e não para os caracteres).
+- Repetir até o fim do texto:
+    - A partir da posição atual, achar a maior string w existente no dicionário.
+    - Escrever o índice de w na saída.
+    - Olhar o próximo caráter a que não fez parte de w.
+    - Escrever a sequência wa no dicionário.
+    - Avançar para a posição de a.
+
+Esses valores citados no exemplo são as posições de uma tabela, vetor ou dicionário. A primeira cadeia de símbolos fica na posição 0, a segunda na posição 1, a terceira na posição 2
+e assim em diante. O crescimento é sequencial. Se definirmos que esse dicionário terá até 1024 valores, então usaremos 10 bits para representar cada valor (210 = 1024). Se usarmos até
+4096 posições na tabela, então precisaremos de 12 bits para representar cada posição. Perceba que o crescimento é exponencial, isto é, cada bit adicional dobra o tamanho da tabela e nos
+permite representar muito mais cadeias de símbolos.
