@@ -1,0 +1,22 @@
+A cifragem de um conjunto de dados é a transformação desses dados em outros dados por meio de uma operação geralmente matemática sobre eles. Essa operação pode ser realizada
+com símbolos (ex.: dígitos ou caracteres), com bytes ou com bits. O maior desafio nessas operações é fazer com que o resultado seja completamente incompreensível para um curioso,
+mas que seja reversível, isto é, os dados originais precisam ser recuperados de alguma forma. Essa reversão é chamada de decifragem.
+
+Um dos principais desafios atuais em relação ao armazenamento de dados é garantir que estejam seguros. É claro que esse desafio se estende às comunicações pela Internet, até mesmo
+porque foram os sistemas de comunicação que despertaram essa preocupação, mas nosso foco, nesta disciplina, é o armazenamento de dados.
+
+Há inúmeros casos de roubo de informações na Internet. Mas, como as trocas de mensagens são, geralmente, muito mais seguras que as meios de armazenamento, os hackers acabam preferindo
+tentar invadir sistemas do que tentar decifrar mensagens. Assim, saber armazenar dados de forma segura se torna uma das principais competências de qualquer desenvolvedor.
+
+A forma mais comum de tornar os dados armazenados seguros é criptografá-los. Uma criptografia é, quase sempre, um processo simples, que transforma os dados originais em algo
+incompreensível. Essa transformação é chamada de cifragem. O desafio aqui é tornar os dados de fato ilegíveis, mas assegurando ser possível a recuperação dos dados originais, quando
+necessário. Essa recuperação é chamada de decifragem.
+
+Existem vários algoritmos que fazem isso de forma bem interessante. Basicamente, eles empregam duas técnicas: mudar os bytes (ou bits) de posição ou trocar os bytes por outros bytes.
+Essas técnicas são chamadas de cifras. Assim, no caso da mudança de posição dos bytes, temos uma cifra de transposição e, no caso da troca de valor dos bytes, temos uma de cifra de
+substituição.
+
+Tanto a transposição quanto a substituição são influenciadas por um parâmetro informado pelo usuário, chamado de chave criptográfica. Se a chave for diferente, então o resultado da
+cifragem também será diferente.
+
+Essas técnicas são usadas das mais diversas formas, para garantir as três aplicações básicas da criptografia: privacidade, integridade e autenticidade.

@@ -1,0 +1,11 @@
+A criptografia simétrica é um tipo de criptografia em que a mesma chave é usada na cifragem e na decifragem. A criptografia assimétrica é um tipo de criptografia em que a chave usada
+na cifragem é diferente da chave usada na decifragem. 
+
+A criptografia simétrica (ou por chave simétrica) é um tipo de criptografia em que a mesma chave é usada na cifragem e na decifragem. É, sem nenhuma dúvida, o tipo de criptografia
+mais fácil de ser implementada e mais rápida nas execuções, porque é mais simples. Geralmente, os passos da cifragem são reversíveis, isto é, a decifragem consiste na realização dos
+passos da cifragem só que na direção inversa. As cifras de Vigenère e de colunas que vimos nas páginas anteriores são exemplos de criptografia simétrica. O único problema desse tipo
+de criptografia é garantir que as chaves sejam mantidas em segredo.
+
+Já a criptografia assimétrica (ou por chaves assimétricas) é um tipo de criptografia em que usamos uma chave na cifragem e outra chave na decifragem. Obviamente, tudo é muito mais
+complexo e as chaves não são totalmente aleatórias, pois deve haver uma relação lógico-matemática entre elas. A mensagem cifrada geralmente é muito maior do que aquelas geradas pela
+criptografia simétrica, mas o processo acaba sendo bem mais seguro.

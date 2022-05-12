@@ -1,0 +1,15 @@
+Uma cifra de fluxo (stream cipher) é um técnica de criptografia simétrica em que os símbolos (dígitos, caracteres, bytes, bits, ...) são codificados um a um, geralmente empregada
+quando são recebidos por meio de um fluxo.
+
+Há muitos exemplos de comunicação em que os dados são transferidos na medida em que essa comunicação ocorre. Os dois exemplos mais simples disso são as ligações (por telefone ou
+videoconferência) e as aplicações de streaming (como Spotify e Netflix). Nesses casos, os dados vão sendo consumidos na medida em que vão chegando. E quando a comunicação ou
+transferência precisa ser criptografada, não dá para esperar chegar toda a informação, decifrá-la e, somente então, apresentá-la. Precisamos decifrar os dados na medida em que
+eles vão chegando. Na outra ponta da comunicação, isto é, no lado do emissor, os dados precisam ser cifrados na medida em que são enviados. Precisamos, portanto, de uma técnica 
+e cifragem de fluxo.
+
+As cifras de fluxo geralmente são bem simples e fazem apenas uma operação XOR bit a bit da mensagem com uma chave criptográfica. É claro que dá para fazer algo mais sofisticado,
+mas isso já traz uma segurança e tanto. Alguns matemáticos, inclusive, bolaram a ideia de uma chave criptográfica que só poderia ser usada uma única vez, que seria totalmente
+aleatória e que seria do mesmo tamanho da mensagem. Eles chamaram isso de One Time Pad. De acordo com eles, se esse One Time Pad fosse algo viável na realidade, a cifra de fluxo
+baseada em XOR seria perfeita.
+
+Então, só para a gente não se esquecer, a cifra de fluxo é uma técnica de cifragem rápida, mas menos segura. A alternativa é a cifra de blocos, que veremos na próxima página.

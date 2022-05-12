@@ -1,0 +1,15 @@
+Uma assinatura digital é uma forma de se verificar a autenticidade de um documento digital, por meio da criptografia de chave assimétrica.
+
+Um assinatura digital é uma forma de a gente validar um documento ou uma mensagem usando a criptografia assimétrica. Só que dessa vez, a gente usa a criptografia numa direção oposta,
+isto é, ciframos algum documento com a nossa chave privada e todo mundo vai conseguir abrir esse documento com a nossa chave pública — ele não será um documento sigilosos. No entanto,
+se esse documento realmente puder ser aberto com a nossa chave pública, então ele só pode ter sido cifrado pela nossa chave privada (à qual apenas a gente tem acesso). Assim, garantimos
+a autoria. Ao mesmo tempo, se o documento puder ser aberto sem nenhuma dificuldade, então ele está íntegro, isto é, ninguém adulterou esse documento.
+
+Na verdade, a assinatura digital não é usada para cifrar todo o documento, pois ele não precisa ser sigiloso mesmo. O que ciframos com a nossa chave privada é apenas um código hash
+desse documento, gerado por alguma função hash especial. Esse código hash cifrado é a nossa "assinatura digital" que garante a autenticidade (autoria e integridade) do documento.
+
+Assim, quando alguém quiser testar a autenticidade do documento, ele gera o código hash novamente e compara com o código hash decifrado da assinatura digital (usando a nossa chave
+pública). Se forem iguais, então o documento é autêntico.
+
+E aí fica apenas uma pergunta: como é que a gente vai saber qual é a chave pública da pessoa que assinou o documento? Bom, quem nos dá isso é o certificado digital, que é explicado
+na próxima página.

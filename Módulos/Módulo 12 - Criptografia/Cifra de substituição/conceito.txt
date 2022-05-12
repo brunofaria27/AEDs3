@@ -1,0 +1,22 @@
+A cifra de substituição é um método de criptografia no qual os símbolos (letras, grupos de letras, números, bytes, ...) são substituídas por outros símbolos. 
+
+A ideia básica de uma cifra de substituição é trocar um símbolo por outro. Nos algoritmos mais usados, essa troca geralmente é feita por meio de bytes, isto é,
+independentemente da informação que esses bytes representam. Algumas vezes, a troca é feita por nibble (4 bits) ou por conjunto de bytes. Tudo depende das operações
+que serão realizadas.
+
+Mas lá no início da história da criptografia, a troca era de caracteres. Em uma mensagem sigilosa, uma letra A poderia ser trocada por um J, uma letra B poderia ser
+trocada por um P e assim em diante. 
+
+O ponto importante aqui é perceber a troca da chave leva a um resultado totalmente diferente. Assim, mesmo que a técnica seja muito simples, se você não souber a chave,
+dificilmente conseguirá decifrar a mensagem.
+
+Um comentário em particular sobre a cifra de Vigenère é que ela pode ser feita com bytes ao invés de caracteres. Podemos montar uma tabela de 256 x 256 bytes e, assim, nos
+liberamos do limite de só termos letras no algoritmo clássico. 
+
+E agora, vem um desafio, será que você consegue transformar a cifra de Viegenère em uma função matemática? Isto é, você consegue construir uma função em uma linguagem de
+programação qualquer que receba uma mensagem e uma chave (ambas como strings) e retorne uma mensagem criptografada? Pense um pouco sobre isso e, se achar uma solução, planeje
+também a função de decifragem. Ah, considere essa dica: as linhas e as colunas, ao invés de letras, podem ser representadas por números e, aí, tente encontrar qual é a operação
+matemática que ocorre entre uma linha e uma coluna.
+
+Veremos um pouco das cifras de substituição nos algoritmos modernos. No entanto, muitas vezes, as tabelas de substituição são fixas. Mas vamos deixar essa assunto um pouco mais
+para frente. Por enquanto, veja como funcionam as cifras de transposição na próxima página.

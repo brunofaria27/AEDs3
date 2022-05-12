@@ -1,0 +1,22 @@
+Um certificado digital é um documento eletrônico usado para provar a propriedade de uma chave pública. O certifica contém informações sobre essa chave, o seu proprietário e sobre a
+entidade que emitiu o próprio certificado. 
+
+Para a gente saber qual é a chave pública de uma determinada entidade — como uma loja virtual ou um banco on-line — a gente precisa ter acesso à sua chave pública. Essa chave pública
+pode ser encontrada no certificado digital, que nada mais é que um documento que dá autenticidade à chave. Esse documento diz que chave é essa, quem é o seu proprietário e quem emitiu
+o certificado. Esse documento pode ser usado de diversas formas, mas ele também precisa ser instalado no site da empresa, para que possa ser acessado pelos usuários que navegam por
+esse site (usando o protocolo HTTPS).
+
+Para tudo dar certo, é claro que precisamos confiar nas empresas que emitem certificados digitais. No Brasil, o Instituto Nacional de Tecnologia da Informação, do Governo Federal,
+é quem cuida dessas entidades certificadoras. Isso é feito por meio de algo chamado de Infraestrutura de Chaves Públicas Brasileira (ICP Brasil). Láaparecem todas as entidades que
+estão cadastradas e o que cada uma pode fazer.
+
+Alguns exemplos de entidades certificadoras são: a Caixa Econômica Federal, a Receita Federal, a Certisign, a Digital Signe a Prodemge. Existem vários tipos de certificados
+digitais: para pessoas físicas, para pessoas jurídicas, em cartões, só como software, por 1 ano, por 3 anos, e assim em diante. Cada um tem um preço diferente. Dê uma navegada
+pelos sites deles para ver isso melhor.
+
+E, aí, vem a história de como a gente usa um certificado digital em uma loja virtual. A gente precisa da chave pública da loja, apenas para podemos criar e mandar uma chave simétrica
+para ela. Quem cria essa chave simétrica é o próprio navegador — na verdade, ele cuida de toda a operação. Uma vez que a loja recebe essa chave simétrica de forma sigilosa
+(criptografada com a chave pública dela, que foi obtida no certificado digital), toda a transação passa a acontecer por meio de uma criptografia simétrica, que é bem mais rápida
+e simples.
+
+E, com isso, a gente encerra a nossa parte de conceitos de criptografia. Na próxima unidade, você verá alguns dos algoritmos criptográficos clássicos.

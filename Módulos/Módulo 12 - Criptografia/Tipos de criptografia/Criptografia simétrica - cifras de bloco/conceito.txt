@@ -1,0 +1,14 @@
+Uma cifra de bloco (block cipher) é um técnica de criptografia simétrica em que os símbolos (dígitos, caracteres, bytes, bits, ...) são acumulados em um bloc que possa ser codificado
+de uma só vez.
+
+A ideia por traz da cifra de blocos é ajuntar um tanto de símbolos, sejam eles caracteres, dígitos, bytes ou mesmo bits, e codificá-los de uma só vez. Geralmente os blocos são bem
+pequenos, variando de 64 a 512 bits. Assim, uma mensagem, arquivo ou conjunto de dados será composto por uma quantidade muito grande de blocos. Eles serão codificados um a um de
+forma independente. Bem, de forma independente se você quiser, porque existe uma técnica para se aumentar a segurança em que o bloco anterior é usado na cifragem do bloco seguinte.
+
+O processo da cifragem de blocos pode ser bem simples. Por exemplo, podemos usar alguma cifra de transposição como a cifra de colunas. Na verdade, podemos fazer uma série de operações
+que combinem transposições, substituições, XORs e ainda outras operações. 
+
+Não é interessante? A maioria dos algoritmos de criptografia simétrica modernos usam a cifragem de blocos, porque ela é mais segura, apesar de ser um pouco mais lenta. No entanto,
+se alguma coisa der errada no meio da decifragem, provavelmente todo o resto dos dados serão indecifráveis também.
+
+E, assim, terminamos a nossa uma visão geral de criptografia simétrica (ainda veremos alguns algoritmos na próxima unidade).

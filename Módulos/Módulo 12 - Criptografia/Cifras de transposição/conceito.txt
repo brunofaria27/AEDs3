@@ -1,0 +1,10 @@
+A cifra de transposição é um método de criptografia em que os símbolos (letras, grupos de letras, números, bytes, bits, ...)são trocados de posição com outros símbolos.
+Essa operação de transposição também é chamada de permutação.
+
+A ideia de uma cifra de transposição (ou de permutação) é embaralhar os símbolos. O problema é que não pode ser um embaralhamento aleatório, porque, senão, não conseguiremos
+decifrar a mensagem mais tarde. Assim, esse embaralhamento geralmente é feito por meio de alguma operação lógica ou matemática, ou seja, existe algum "segredo" por trás de
+cada cifra. Bom, talvez esse "segredo" seja algo bem sofisticado, mas, na maioria das vezes, é algo bem simples como a cifra de colunas.
+
+Não é simples? Todo o "segredo" está em escrever a mensagem linha a linha e retirar os símbolos coluna a coluna. No entanto, em algoritmos modernos (como veremos lá pra frente),
+geralmente há uma tabela fixa de transposição que já estabelece onde vai parar cada bit ou byte na mensagem cifrada.  Mas, antes de chegarmos a esses algoritmos, vamos ver na próxima
+página a máquina que se tornou uma das principais vantagens dos alemães na Segunda Guerra Mundial.

@@ -1,0 +1,31 @@
+A criptografia assimétrica é um tipo de criptografia que usa um par de chaves: uma é usada para a cifragem e a outra para a decifragem. Nas aplicações em que esse tipo de
+criptografia é usada, geralmente uma dessas chaves é tornada pública, passando a ser do conhecimento de todos, e a outra é mantida privada, devendo ser conhecida apenas
+pelo seu dono.
+
+Nos sistemas de comunicação em que não é possível compartilhar uma chave entre dois usuários por que estão em uma transação pública (como uma compra em uma loja virtual
+ou um acesso ao site de um banco), é comum que a criptografia simétrica não possa ser usada. Imagine, por exemplo, que a cada vez que você fosse acessar o seu sistema bancário,
+você precisasse ligar para o banco e pegar uma nova chave? Não seria trabalhoso? E quem te garante que a pessoa que te passaria a chave não tentaria tirar proveito da situação?
+
+Nesse cenário, também não dá para usar uma chave anterior, porque ela já pode ter sido divulgada. As chaves deveriam ser renovadas a cada transação. E, aí, também fica muito
+difícil para o banco gerenciar as chaves de todos os seus clientes em todas as suas transações. Então, o melhor é buscarmos outra solução. Felizmente, há uma pronta: a criptografia
+de chave assimétrica.
+
+Nesse tipo de criptografia, cada pessoa ou entidade tem duas chaves — uma ele tornará pública, isto é, todo mundo ficará conhecendo a chave, e a outra será privada, isto é,
+apenas o seu dono deve conhecê-la. É por isso que a criptografia assimétrica também é chamada de criptografia de chave pública. Mas, enfim, se você quiser mandar uma mensagem
+para uma pessoa, precisa usar a chave pública dessa pessoa. E somente ela vai conseguir decifrar a mensagem usando a sua chave privada. 
+
+Veja o exemplo da figura abaixo. Nela, Paulo quer mandar um documento sigiloso para Carolina. Para isso, Paulo deve cifrar o documento usando a chave pública da Carolina, pois,
+assim, somente ela vai conseguir decifrar o documento. E, se ela quiser responder de forma sigilosa para o Paulo, devera usar a chave pública dele, para que ele possa decifrar
+usando a sua própria chave privada.
+
+IMAGEM: RSA.png
+
+Mas e se a gente quiser acessar o banco ou uma loja virtual de forma sigilosa e a gente não tiver as nossas chaves pública e privada pessoais? Bom, aguarde um pouquinho que
+esse é o assunto de Certificados Digitais logo adiante. Por enquanto, pense numa situação em que cada pessoa ou entidade tem o seu par de chaves.
+
+O principal algoritmo de criptografia assimétrica que temos hoje é o RSA, criado por Ron Rivest, Adi Shamir e Leonard Adleman em 1977.
+
+Parece um pouco complicado, não é? Mas não se preocupe. Toda linguagem de programação moderna tem esses algoritmos prontos por meio de alguma biblioteca. Então, basta saber usar
+a biblioteca.
+
+Nas próximas páginas, veremos algumas formas de uso bem legais da criptografia assimétrica.
