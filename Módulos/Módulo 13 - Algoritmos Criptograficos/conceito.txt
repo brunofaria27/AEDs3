@@ -1,0 +1,25 @@
+á muitos algoritmos criptográficos criados nas últimas décadas. Alguns já foram abandonados, por não serem mais seguros o suficiente, e outros foram tendo inúmeras variantes.
+Veremos alguns aqui, mais com o objetivo de vermos aplicações reais dos conceitos que estamos estudando do que dos aprofundarmos nas técnicas modernas de criptografia, pois
+isso demandaria um curso específico na área.
+
+Assim, veremos alguns dos algoritmos clássicos e que nos ajudam a entender como funciona a criptografia. Entre os algoritmos de chave simétrica, veremos:
+- https://pucminas.instructure.com/courses/88426/pages/data-encryption-standard-des
+- https://pucminas.instructure.com/courses/88426/pages/triple-des-3des-ou-tdes
+- https://pucminas.instructure.com/courses/88426/pages/advanced-encryption-standard-aes
+
+Se você se sentir particularmente interessado(a) por esse tipo de informação, deixei aqui algumas sugestões de outros algoritmos a estudar (na Internet):
+Algoritmos de chave simétrica:
+- https://pt.wikipedia.org/wiki/International_Data_Encryption_Algorithm
+- https://pt.wikipedia.org/wiki/Blowfish
+- https://pt.wikipedia.org/wiki/Twofish
+
+Algoritmos de chave assimétrica:
+- https://pt.wikipedia.org/wiki/Troca_de_chaves_de_Diffie%E2%80%93Hellman
+- https://pt.wikipedia.org/wiki/RSA_(sistema_criptogr%C3%A1fico)
+
+Funções hash criptográficas:
+- Message Digest: https://pt.wikipedia.org/wiki/MD5
+- Secure Hash Algorithms:
+    - https://pt.wikipedia.org/wiki/SHA-1
+    - https://pt.wikipedia.org/wiki/SHA-2
+    - https://pt.wikipedia.org/wiki/SHA-3
