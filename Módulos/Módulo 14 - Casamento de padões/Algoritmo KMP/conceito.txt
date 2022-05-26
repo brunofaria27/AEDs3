@@ -1,0 +1,20 @@
+O algoritmo de casamento de padrões de Knuth-Morris-Pratt (KMP) usa uma máquina de estados para, quando ocorrer uma falha nos testes, identificar o que pode ser aproveitado do
+teste anterior. 
+
+Em 1977, Donald Knuth, James H. Morris e Vaughan Pratt elaboraram um algoritmo de casamento de padrões foi criado a partir do ideia de uma máquina de estados ou autômato. Essa
+máquina de estados é construída a partir do padrão e não do documento em que esse padrão será buscado. A construção da máquina de estados é feita antes da busca propriamente dita.
+Assim, ela ocorre em uma fase de pré-processamento.
+
+Mas vamos ver qual é a ideia por trás disso. Tomemos o exemplo do padrão CACAU que buscaremos em um documento. Esse padrão contém uma repetição da sequência de caracteres CA,
+ou melhor, contém uma repetição do prefixo CA. Suponha que, durante a busca desse padrão em um documento, foram encontrados os caracteres CACA. Falta apenas o caráter U para
+podermos afirmar que o padrão foi encontrado. Agora, imagine que o próximo caractere no documento não seja o U esperado, mas que seja a letra C. O padrão, portanto, não será
+encontrado nesse teste. Mas repare que CACAC não permite o casamento do padrão, mas os três caracteres finais CAC podem também ser o início de CACAU. Ou seja, se, continuando
+a busca, encontrarmos um caractere A no documento, seguindo de um caractere U, teremos encontrado o padrão CACAU com apenas mais duas comparações de caracteres. Se estivéssemos
+usando o algoritmo da força bruta, teríamos que testar todos os 5 caracteres novamente.
+
+O desafio aqui, portanto, é saber como identificar essas oportunidades de reaproveitamento das comparações anteriores em novas comparações. 
+
+Agora, que tal você mesmo explorar um pouco tanto a construção do vetor de falhas quanto do uso dele na busca em um texto? Para isso, use uma dessas visualizações:
+    - https://cmps-people.ok.ubc.ca/ylucet/DS/KnuthMorrisPratt.html
+    - http://jovilab.sinaapp.com/visualization/algorithms/strings/kmp
+    - http://whocouldthat.be/visualizing-string-matching/

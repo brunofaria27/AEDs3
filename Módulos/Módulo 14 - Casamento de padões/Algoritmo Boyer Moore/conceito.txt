@@ -1,0 +1,29 @@
+O algoritmo de casamento de padrões de Boyer Moore compara os símbolos do padrão com os do documento da direita para a esquerda, começando pelo último símbolo. Para determinar o
+deslocamento a cada teste, são empregadas duas formas de cálculo: deslocamento por caractere ruim e deslocamento por sufixo bom. 
+
+Um dos algoritmos mais eficientes de reconhecimento exato de padrões é o algoritmo Boyer-Moore, criado em 1977 por Robert S. Boyer e J. Strother Moore. Versões simplificadas ou
+completas dele normalmente são implementadas nos mecanismos de localização e substituição dos softwares modernos, como os editores de texto e os navegadores.
+
+O algoritmo busca pelos caracteres do padrão da direita para esquerda, começando pelo último caractere. No caso de uma diferença (ou casamento completo do padrão), ele usa duas
+regras pré-calculadas para determinar o deslocamento para a próxima comparação. Estas duas regras são chamadas de deslocamento por caractere ruim e deslocamento por sufixo bom.
+Assim, como o KMP, esse algoritmo tem uma fase de pré-processamento.
+
+O algoritmo de Boyer Moore acabou se tornando um dos algoritmos de casamento de padrões mais famosos e serve como comparação para novas ideias. Quando alguém bola um algoritmo novo,
+ele deve ser melhor que o Boyer Moore. E isso é possível? Claro, mas em situações específicas.
+
+Mas vamos ver como o Boyer Moore funciona? No próximo vídeo, veremos a primeira forma de cálculo de deslocamento usada no algoritmo: o deslocamento por caractere ruim.
+OBS: SLIDE 1
+
+Bom, essa foi a forma de cálculo de deslocamento usada no algoritmo de Boyer Moore. O algoritmo de Boyer Moore usa também uma segunda forma de cálculo de deslocamento que é o
+deslocamento por sufixo bom. No fim das contas, os dois cálculos são paralelos e o deslocamento final será o maior deles. Veja esse outro cálculo de deslocamento neste vídeo:
+OBS: SLIDE 2
+
+Uma questão importante a observar aqui é que quanto maior for o padrão mais eficiente será a busca, pois os deslocamentos serão maiores. Mas vamos ver um exemplo dos dois cálculos
+aplicados juntos em uma comparação? Este próximo video mostra isso acontecendo:
+OBS: SLIDE 3
+
+Que tal experimentar suas próprias comparações? Use uma dessas duas visualizações para experimentar:
+    - https://cmps-people.ok.ubc.ca/ylucet/DS/BoyerMoore.html
+    - http://jovilab.sinaapp.com/visualization/algorithms/strings/boyer-moore-horspool
+    - http://whocouldthat.be/visualizing-string-matching/
+Obs.: O algoritmo de Boyer Moore Horspool é uma simplificação do Boyer Moore que reduz o tempo de escolha entre os cálculos de deslocamento.

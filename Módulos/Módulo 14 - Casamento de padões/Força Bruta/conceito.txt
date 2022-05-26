@@ -1,0 +1,7 @@
+O casamento de padrões por força bruta é uma técnica de busca exaustiva em que o padrão é testado em todas as posições do documento, sem qualquer relação de um teste com os demais. 
+
+A forma mais simples de casamento de padrões é a força bruta. Nesse caso, a gente testa a sequência de símbolos do padrão em TODAS as posições possíveis do documento. Obviamente,
+não é uma boa ideia fazermos a busca usando a força bruta, mas é importante conhecê-la para que a gente possa entender as vantagens das outras formas. No casamento por força bruta,
+o resultado de um teste do padrão em uma posição não é aproveitado em um teste posterior. Assim, não há nenhuma otimização nessa forma de busca.
+
+Você pode testar o algoritmo da força bruta usando suas próprias strings por meio dessa -> http://whocouldthat.be/visualizing-string-matching/

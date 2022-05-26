@@ -1,0 +1,31 @@
+Casamento de padrões é a verificação da presença de uma determinada sequência de símbolos em um conjunto de dados. 
+
+Uma das operações mais necessárias em computação é a identificação da presença de uma cadeia ou sequência de símbolos (ex.: caracteres) em um documento, mensagem ou arquivo.
+Basicamente, precisamos saber se essa sequência aparece no documento e onde. Certamente você já usou isso quando, em um texto do Word, em um arquivo PDF ou em página da Web,
+fez uma busca de palavras. 
+
+Existem duas técnicas principais de buscarmos sequência em um documento. A primeira é a indexação de todas as sequência possíveis. Por exemplo, em um documento, podemos indexar
+todas as palavras nele existentes e fazermos a busca nesse índice. Para isso, usaríamos as listas invertidas. A segunda técnica, que veremos aqui, é a busca sequencial pela sequência,
+isto é, vamos comparar sequencialmente cada símbolo da cadeia procurada com os símbolos do documento. Essa técnica é chamada de casamento de padrões. O termo padrão aqui é usado por
+que a sequência não precisa ser tão rígida assim (pode ser uma busca aproximada). Além disso, esse termo também é mais flexível do que strings, porque os algoritmos que veremos podem
+ser usados para buscarmos sequências de pixes, de trechos de música, de DNA e muito mais.
+
+Enfim, apesar desses algoritmos terem sido originalmente criados para a busca de strings  em textos, podemos aplicá-los a diversos outros projetos como identificação de paternidade
+por meio do DNA, detecção de riscos de invasão em sistemas, detecção de comportamento fraudulento em operadoras de seguro e comportamento de consumidor em grandes lojas virtuais.
+Para isso, basta trocarmos o conceito de símbolo: nos textos, um símbolo é uma letra; em uma sequência genética, um símbolo é um nucleotídeo; na navegação em lojas virtuais, o
+símbolo é o clique em um link.  Esses exemplos, portanto, não são mais complexos do que a busca de textos. Apenas usam símbolos diferentes das letras, como os intervalos de login
+em um sistema de aprendizagem ou as operações de compra em um cartão de crédito.
+
+Os algoritmos de casamento de padrões se dividem em duas categorias: algoritmos de casamento exato de padrões e algoritmos de casamento aproximado de padrões. Os algoritmos da
+primeira categoria, isto é, de casamento exato de padrões, são aqueles que buscam um padrão no arquivo, sem qualquer tolerância a erros. Isso quer dizer que se houver um erro de
+escrita ou uma pequena variação no arquivo, o padrão não será encontrado. Considere, por exemplo, a busca do nome LUIS em um arquivo. O resultado não envolveria nenhuma ocorrência
+de LUIZ, pois há uma pequena diferença na grafia em relação ao padrão.
+
+No entanto, há muitos casos em que essa flexibilidade é necessária, como a busca em arquivos com erros gramaticais e ambiguidade na grafia. Para esses casos, existem os algoritmos
+de casamento aproximado de padrões, que compõem a segunda categoria desse tipo de algoritmo.
+
+Antes de avançarmos, me deixe fazer um esclarecimento. Às vezes, o termo casamento de padrões (pattern matching) é confundido com o termo reconhecimento de padrões
+(pattern recognition). Casamento de padrões é a comparação símbolo a símbolo (com algumas otimizações, é claro) de uma sequência procurada em um documento.
+Reconhecimento de padrões é um outra área da computação, mais baseada em algoritmos de inteligência artificial, que tenta reconhecer coisas já vistas antes.
+Algumas aplicações do reconhecimento de padrões são: reconhecimento óptico de caracteres (OCR), reconhecimento facial, reconhecimento de impressões digitais e tradução
+automática de voz.
