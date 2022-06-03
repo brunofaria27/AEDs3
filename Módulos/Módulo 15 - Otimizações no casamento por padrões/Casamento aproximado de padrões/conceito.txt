@@ -1,0 +1,23 @@
+O casamento aproximado de padrões é uma técnica de busca de padrões em que o casamento pode ser aproximado, isto é,  pode haver pequenas diferenças entre a sequência do padrão
+buscado e a sequência do documento. Para isso, é necessário haver alguma forma de se medir a diferença entre as duas sequências. Aqui, usaremos a distância de edição.
+
+O casamento aproximado de padrões é uma forma de casamento em que algumas diferenças entre os símbolos são permitidas. Essas diferenças podem ser resultado de falhas na
+transmissão de uma mensagem, de erros de digitação ou apenas variações nos termos.
+
+O problema passa a ser, portanto, de determinar que duas cadeias de símbolos representam a mesma coisa mesmo que com uma pequena diferença entre os seus símbolos. Essa diferença
+de símbolos é chamada de distância entre as duas cadeias.
+
+Uma forma de se calcular a distância entre duas cadeias é por meio do número de alterações necessárias em uma cadeia para que ela se transforme em outra. A distância de edição
+indica o número de exclusões, inserções e substituições de símbolos que são necessárias para tornar uma cadeia de símbolos idêntica à outra. Por exemplo, a distância entre COPO
+e CORPO é 1, pois foi necessária a inserção do caráter R. Da mesma forma, a distância entre VASO e VAZIO é 2, devido à substituição do S por um Z e da inserção do I. Como qualquer
+cadeia de símbolos pode ser transformada em outra por meio dessas edições, um algoritmo de casamento aproximado de padrões precisa de um limite k de edições para considerar duas
+cadeias semelhantes.
+
+Uma forma de cálculo dessa distância de edição foi proposta por Vladimir Levenshtein em 1965, por meio de um cálculo recursivo baseado nas seguintes equações:
+/equacoes.png
+
+Enfim, a forma como fazemos uma busca aproximada é diferente da busca exata. A gente vai pegar duas cadeias de símbolos (o padrão e uma sequência ou palavra do documento) e ver
+qual é a distância entre elas. Se a distância estiver dentro de uma faixa aceitável (seja um número absoluto de edições máximas ou seja ao percentual em relação ao tamanho do termo),
+então diremos que as cadeias são similares.
+
+Deixo aqui mais alguns exemplos do cálculo da distância de edição <https://phiresky.github.io/levenshtein-demo/>. para te ajudar na compreensão do algoritmo.

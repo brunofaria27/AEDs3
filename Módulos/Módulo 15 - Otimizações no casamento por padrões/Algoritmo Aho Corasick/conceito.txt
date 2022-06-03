@@ -1,0 +1,12 @@
+O algoritmo de casamento de padrões de Aho-Corasick é um algoritmo que tenta localizar vários padrões em um documento passando apenas uma vez por esse documento.  
+
+Em 1975, Alfred V. Aho e Margaret J. Corasick elaboraram uma variação do algoritmo de casamento de padrões KMP, que permite a busca simultânea de um determinado conjunto
+de padrões em um conjunto de dados. A ideia era ajustar a ideia da máquina de estados na busca para que fosse possível se buscar vários padrões sem ter que passar pelo
+documento várias vezes — independentemente da quantidade de padrões que fossem buscados.
+
+O algoritmo de Aho-Corasick é apenas um representante da categoria de algoritmos de casamento de conjuntos. Outros exemplos são Commentz-Walter, Set-BOM e Rabin-Karp. Mas
+o algoritmo que acabamos de ver é suficiente parra dar uma ideia dessa possibilidade de busca simultânea de vários padrões.
+
+E que tal experimentar usá-lo nas suas próprias buscas? Faça isso por meio de dessas visualizações:
+Visualização do Aho-Corasick: http://jovilab.sinaapp.com/visualization/algorithms/strings/aho-corasick
+Visualização do Aho-Corasick: https://wiomoc.de/aho-corasick-viz/
